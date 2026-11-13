@@ -147,12 +147,25 @@ function decorateButtons(main) {
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
+/**
+ * Keeps the box of content images at the ratio of their authored width/height, even when
+ * a smaller rendition with a slightly different ratio is loaded.
+ * @param {Element} main The main container element
+ */
+function decorateImages(main) {
+  main.querySelectorAll('.default-content-wrapper picture > img[width][height]').forEach((img) => {
+    img.style.aspectRatio = `${img.getAttribute('width')} / ${img.getAttribute('height')}`;
+  });
+}
+
+// eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  decorateImages(main);
 }
 
 /**

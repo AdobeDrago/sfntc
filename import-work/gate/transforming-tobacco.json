@@ -1,0 +1,40 @@
+{
+ "site": "../site.json",
+ "page": "transforming-tobacco",
+ "source": "https://www.sfntc.com/transforming-tobacco/",
+ "rebuild": "http://localhost:3017/transforming-tobacco",
+ "widths": [
+  1440,
+  1280
+ ],
+ "out": "work/gate/transforming-tobacco",
+ "bundle": "../work/bundles/transforming-tobacco",
+ "timelines": [],
+ "sections": [
+  {
+   "name": "header",
+   "source": "header.site-header",
+   "rebuild": "header"
+  },
+  {
+   "name": "page-header",
+   "source": "main .page-header",
+   "rebuild": "main .page-header"
+  },
+  {
+   "name": "crumbs",
+   "source": "main > .page-container",
+   "rebuild": "main .page-header-crumbs"
+  },
+  {
+   "name": "content1",
+   "source": "main .entry-content > :nth-child(1)",
+   "rebuild": "main > .section:nth-child(2)"
+  },
+  {
+   "name": "footer",
+   "source": "footer.site-footer",
+   "rebuild": "footer"
+  }
+ ]
+}

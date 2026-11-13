@@ -1,0 +1,93 @@
+{
+ "repo": "..",
+ "sections": "pages",
+ "da": {
+  "org": "AdobeDrago",
+  "site": "sfntc",
+  "dir": "da"
+ },
+ "pages": {
+  "home": {
+   "path": "index",
+   "source": "https://www.sfntc.com/",
+   "gate": "gate/home.json",
+   "bundle": "work/bundles/home"
+  },
+  "our-company": {
+   "path": "our-company",
+   "source": "https://www.sfntc.com/our-company/",
+   "gate": "gate/our-company.json",
+   "bundle": "work/bundles/our-company"
+  },
+  "our-commitment": {
+   "path": "our-commitment",
+   "source": "https://www.sfntc.com/our-commitment/",
+   "gate": "gate/our-commitment.json",
+   "bundle": "work/bundles/our-commitment"
+  },
+  "our-company-sfntc-vision": {
+   "path": "our-company/sfntc-vision",
+   "source": "https://www.sfntc.com/our-company/sfntc-vision/",
+   "gate": "gate/our-company-sfntc-vision.json",
+   "bundle": "work/bundles/our-company-sfntc-vision"
+  },
+  "transforming-tobacco": {
+   "path": "transforming-tobacco",
+   "source": "https://www.sfntc.com/transforming-tobacco/",
+   "gate": "gate/transforming-tobacco.json",
+   "bundle": "work/bundles/transforming-tobacco"
+  },
+  "our-product-the-passion-behind-the-brand": {
+   "path": "our-product/the-passion-behind-the-brand",
+   "source": "https://www.sfntc.com/our-product/the-passion-behind-the-brand/",
+   "gate": "gate/our-product-the-passion-behind-the-brand.json",
+   "bundle": "work/bundles/our-product-the-passion-behind-the-brand"
+  },
+  "want-to-quit-smoking": {
+   "path": "want-to-quit-smoking",
+   "source": "https://www.sfntc.com/want-to-quit-smoking/",
+   "gate": "gate/want-to-quit-smoking.json",
+   "bundle": "work/bundles/want-to-quit-smoking"
+  },
+  "our-commitment-cigarette-waste": {
+   "path": "our-commitment/cigarette-waste",
+   "source": "https://www.sfntc.com/our-commitment/cigarette-waste/",
+   "gate": "gate/our-commitment-cigarette-waste.json",
+   "bundle": "work/bundles/our-commitment-cigarette-waste"
+  },
+  "our-commitment-carolina-farm-stewardship-association": {
+   "path": "our-commitment/carolina-farm-stewardship-association",
+   "source": "https://www.sfntc.com/our-commitment/carolina-farm-stewardship-association/",
+   "gate": "gate/our-commitment-carolina-farm-stewardship-association.json",
+   "bundle": "work/bundles/our-commitment-carolina-farm-stewardship-association"
+  },
+  "underage-tobacco-prevention": {
+   "path": "underage-tobacco-prevention",
+   "source": "https://www.sfntc.com/underage-tobacco-prevention/",
+   "gate": "gate/underage-tobacco-prevention.json",
+   "bundle": "work/bundles/underage-tobacco-prevention"
+  },
+  "our-product": {
+   "path": "our-product",
+   "source": "https://www.sfntc.com/our-product/",
+   "gate": "gate/our-product.json",
+   "bundle": "work/bundles/our-product"
+  },
+  "our-commitment-what-you-can-do-to-help": {
+   "path": "our-commitment/what-you-can-do-to-help",
+   "source": "https://www.sfntc.com/our-commitment/what-you-can-do-to-help/",
+   "gate": "gate/our-commitment-what-you-can-do-to-help.json",
+   "bundle": "work/bundles/our-commitment-what-you-can-do-to-help"
+  },
+  "sfntc-foundation": {
+   "path": "sfntc-foundation",
+   "source": "https://www.sfntc.com/sfntc-foundation/",
+   "gate": "gate/sfntc-foundation.json",
+   "bundle": "work/bundles/sfntc-foundation"
+  }
+ },
+ "fragments": {
+  "_nav": "nav",
+  "_footer": "footer"
+ }
+}

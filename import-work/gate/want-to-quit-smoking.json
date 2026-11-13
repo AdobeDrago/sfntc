@@ -1,0 +1,40 @@
+{
+ "site": "../site.json",
+ "page": "want-to-quit-smoking",
+ "source": "https://www.sfntc.com/want-to-quit-smoking/",
+ "rebuild": "http://localhost:3017/want-to-quit-smoking",
+ "widths": [
+  1440,
+  1280
+ ],
+ "out": "work/gate/want-to-quit-smoking",
+ "bundle": "../work/bundles/want-to-quit-smoking",
+ "timelines": [],
+ "sections": [
+  {
+   "name": "header",
+   "source": "header.site-header",
+   "rebuild": "header"
+  },
+  {
+   "name": "page-header",
+   "source": "main .page-header",
+   "rebuild": "main .page-header"
+  },
+  {
+   "name": "crumbs",
+   "source": "main > .page-container",
+   "rebuild": "main .page-header-crumbs"
+  },
+  {
+   "name": "content1",
+   "source": "main .entry-content > :nth-child(1)",
+   "rebuild": "main > .section:nth-child(2)"
+  },
+  {
+   "name": "footer",
+   "source": "footer.site-footer",
+   "rebuild": "footer"
+  }
+ ]
+}
