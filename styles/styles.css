@@ -242,9 +242,15 @@ main > .section.band:last-child:not(.end-gap) {
 }
 
 /* images that follow another image paragraph, or sit right under the title of a flush-image section, have no top margin */
-main .default-content-wrapper p:has(> picture) + p:has(> picture) img,
-main .section > .default-content-wrapper:first-child > p:first-child:has(> picture) img,
+main .default-content-wrapper p:has(> picture) + p:has(> picture) img {
+  margin-top: 0;
+}
+
 main .section.flush-image .default-content-wrapper img {
+  margin-top: 0;
+}
+
+main .section > .default-content-wrapper:first-child > p:first-child:has(> picture) img {
   margin-top: 0;
 }
 
