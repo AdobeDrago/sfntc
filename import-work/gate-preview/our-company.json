@@ -1,0 +1,40 @@
+{
+ "site": "../site.json",
+ "page": "our-company",
+ "source": "https://www.sfntc.com/our-company/",
+ "rebuild": "https://sfntc-pages-parity--sfntc--adobedrago.aem.page/our-company",
+ "widths": [
+  1440,
+  1280
+ ],
+ "out": "work/gate-preview/our-company",
+ "bundle": "../work/bundles/our-company",
+ "timelines": [],
+ "sections": [
+  {
+   "name": "header",
+   "source": "header.site-header",
+   "rebuild": "header"
+  },
+  {
+   "name": "page-header",
+   "source": "main .page-header",
+   "rebuild": "main .page-header"
+  },
+  {
+   "name": "crumbs",
+   "source": "main > .page-container",
+   "rebuild": "main .page-header-crumbs"
+  },
+  {
+   "name": "content1",
+   "source": "main .entry-content > :nth-child(1)",
+   "rebuild": "main > .section:nth-child(2)"
+  },
+  {
+   "name": "footer",
+   "source": "footer.site-footer",
+   "rebuild": "footer"
+  }
+ ]
+}

@@ -1,0 +1,85 @@
+{
+ "site": "../site.json",
+ "page": "sfntc-foundation",
+ "source": "https://www.sfntc.com/sfntc-foundation/",
+ "rebuild": "https://sfntc-pages-parity--sfntc--adobedrago.aem.page/sfntc-foundation",
+ "widths": [
+  1440,
+  1280
+ ],
+ "out": "work/gate-preview/sfntc-foundation",
+ "bundle": "../work/bundles/sfntc-foundation",
+ "timelines": [],
+ "sections": [
+  {
+   "name": "header",
+   "source": "header.site-header",
+   "rebuild": "header"
+  },
+  {
+   "name": "page-header",
+   "source": "main .page-header",
+   "rebuild": "main .page-header"
+  },
+  {
+   "name": "crumbs",
+   "source": "main > .page-container",
+   "rebuild": "main .page-header-crumbs"
+  },
+  {
+   "name": "content1",
+   "source": "main .entry-content > :nth-child(1)",
+   "rebuild": "main > .section:nth-child(2)"
+  },
+  {
+   "name": "content2",
+   "source": "main .entry-content > :nth-child(2)",
+   "rebuild": "main .carousel"
+  },
+  {
+   "name": "content3",
+   "source": "main .entry-content > :nth-child(4)",
+   "rebuild": "main > .section:nth-child(4)"
+  },
+  {
+   "name": "content4",
+   "source": "main .entry-content > :nth-child(6)",
+   "rebuild": "main > .section:nth-child(5)"
+  },
+  {
+   "name": "content5",
+   "source": "main .entry-content > :nth-child(7)",
+   "rebuild": "main > .section:nth-child(6)"
+  },
+  {
+   "name": "content6",
+   "source": "main .entry-content > :nth-child(8)",
+   "rebuild": "main > .section:nth-child(7)"
+  },
+  {
+   "name": "content7",
+   "source": "main .entry-content > :nth-child(10)",
+   "rebuild": "main > .section:nth-child(8)"
+  },
+  {
+   "name": "content8",
+   "source": "main .entry-content > :nth-child(11)",
+   "rebuild": "main > .section:nth-child(9)"
+  },
+  {
+   "name": "content9",
+   "source": "main .entry-content > :nth-child(12)",
+   "rebuild": "main > .section:nth-child(10)"
+  },
+  {
+   "name": "content10",
+   "source": "main .entry-content > :nth-child(13)",
+   "rebuild": "main > .section:nth-child(11)"
+  },
+  {
+   "name": "footer",
+   "source": "footer.site-footer",
+   "rebuild": "footer"
+  }
+ ]
+}

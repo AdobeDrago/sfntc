@@ -126,7 +126,7 @@ def render(n, page, base='https://www.sfntc.com'):
         alt = html.escape(n.attrs.get('alt', ''), quote=True)
         dims = ''.join(f' {a}="{n.attrs[a]}"' for a in ('width', 'height') if n.attrs.get(a, '').isdigit())
         pic = f'<picture><img src="{fetch_image(src, page)}" alt="{alt}"{dims}></picture>'
-        return f'<em>{pic}</em>' if 'alignnone' in n.cls() else pic
+        return pic
     if t == 'br':
         return '<br>'
     if t == 'table':
@@ -145,6 +145,9 @@ def render(n, page, base='https://www.sfntc.com'):
         href = n.attrs.get('href', '')
         href = re.sub(r'^https?://(www\.)?sfntc\.com', '', href) or '/'
         return f'<a href="{href}">{inner}</a>'
+    if t == 'p' and inner.strip() in ('&nbsp;', ''):
+        # DA drops paragraphs that only hold a non-breaking space; an empty line break survives
+        return '<p><br></p>' if inner.strip() else ''
     if t in KEEP:
         return f'<{t}>{inner}</{t}>'
     return inner
@@ -202,6 +205,11 @@ def main():
                 body = re.sub(r'<h2></h2>', '', body)
                 if not re.sub(r'<[^>]*>|&nbsp;|\s', '', body) and '<picture' not in body:
                     continue
+                els = [x for x in child.kids if not isinstance(x, str)]
+                if len(els) > 1 and els[0].tag == 'h2' and els[1].tag == 'p':
+                    im = find(els[1], lambda x: x.tag == 'img')
+                    if im is not None and 'alignnone' in im.cls():
+                        body += '<div class="section-metadata"><div><div>Style</div><div>flush-image</div></div></div>'
                 h2 = next((x for x in child.kids if not isinstance(x, str) and x.tag == 'h2'), None)
                 if h2 is not None and 'text-align: center' in (h2.attrs.get('style') or ''):
                     body += '<div class="section-metadata"><div><div>Style</div><div>title-center</div></div></div>'

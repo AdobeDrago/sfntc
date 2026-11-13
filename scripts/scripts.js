@@ -153,6 +153,8 @@ function decorateButtons(main) {
  * @param {Element} main The main container element
  */
 function decorateImages(main) {
+  // DA wraps the first line of every list item in a paragraph: unwrap it
+  main.querySelectorAll('.default-content-wrapper li > p:first-child').forEach((p) => p.replaceWith(...p.childNodes));
   main.querySelectorAll('.default-content-wrapper picture > img[width][height]').forEach((img) => {
     img.style.aspectRatio = `${img.getAttribute('width')} / ${img.getAttribute('height')}`;
   });
