@@ -165,6 +165,10 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  // the metadata block leaves an empty trailing section behind: drop it so :last-child rules work
+  main.querySelectorAll(':scope > .section').forEach((section) => {
+    if (!section.children.length) section.remove();
+  });
   decorateBlocks(main);
   decorateButtons(main);
   decorateImages(main);
