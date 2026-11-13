@@ -145,9 +145,9 @@ def render(n, page, base='https://www.sfntc.com'):
         href = n.attrs.get('href', '')
         href = re.sub(r'^https?://(www\.)?sfntc\.com', '', href) or '/'
         return f'<a href="{href}">{inner}</a>'
-    if t == 'p' and inner.strip() in ('&nbsp;', ''):
-        # DA drops paragraphs that only hold a non-breaking space; an empty line break survives
-        return '<p><br></p>' if inner.strip() else ''
+    if t == 'p' and inner.strip() in ('&nbsp;', '') and 'overlay-text' not in n.cls():
+        # DA drops paragraphs that only hold a non-breaking space: use a spacer block instead
+        return '<div class="spacer"></div>'
     if t in KEEP:
         return f'<{t}>{inner}</{t}>'
     return inner
