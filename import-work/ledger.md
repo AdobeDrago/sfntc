@@ -26,6 +26,8 @@ is the final run (`tools/run_all.sh`).
 | Section | table (foundation) | real `<table>` from block rows | 133→0 | 74 → 100 | | |
 | Section | columns `contact` (foundation) | flex 488/500 shrink to 721 | 6→0 | 95 → 99.9 | | |
 | Page level | offsets | 13/13 pages, every section at the source's page Y (spacer gaps modelled as section margins) | n/a | n/a | | |
+| Branch preview | DA publish | 20 images + 15 bodies uploaded; DA normalises content: drops `<em>` around images, drops `<p>&nbsp;</p>`, wraps list-item text in `<p>`, leaves an empty trailing section. Fixes: `spacer` block, image margin rules, `li > p` unwrap, empty-section removal in `scripts.js` | n/a | n/a | | |
+| Branch preview | re-gate | all 13 pages vs `https://sfntc-pages-parity--sfntc--adobedrago.aem.page/`: every section at its source page position; remaining misses are the expected `media_<hash>` image pairing (2 mismatches per section with a photo, ~100% pixel) and the items under residuals | see residuals | see residuals | | |
 | Lint | — | `npm run lint` clean (import-work/ in `.eslintignore`) | n/a | n/a | | |
 
 ## Residuals (local gate, factual)
@@ -37,3 +39,9 @@ is the final run (`tools/run_all.sh`).
 - **Entry gate:** the "Enter SFNTC.com" welcome page is not migrated (user decision).
 - **Home hero link:** the source links to `/sfntc-vision/`; the rebuild links to `/our-company/sfntc-vision/` (the sitemap URL of the vision page). Redirect behaviour of `/sfntc-vision/` was not verified.
 - Footer text "© 2026 SFTNC." is copied verbatim (including the source's spelling).
+
+## Residuals on the branch preview
+- Sections with a photo show 2 mismatches (`UNPAIRED` source image, `UNPAIRED` `media_<hash>` rebuild image) at 99.9–100% pixel; carolina has 4 (two photos). Expected: EDS renames and re-encodes images.
+- Home hero 98.54% (re-encoded photo, 0 style mismatches). `sfntc-foundation` content5 99.95% (6 mismatches: 3 image pairs, plus 1px tolerance on height); `sfntc-foundation` footer 98.36% / 97.8% (source footer sits at a fractional y, 8634.875).
+- `sfntc-foundation` local residuals also remain: `History` heading x-offset (above) and the first image of the photo block (`All-Relations United`, source class `alignnone`: top margin 0, rebuild 16px; DA drops the italic marker I used to carry that).
+- Not verified: behaviour with JavaScript disabled, hover states of nav dropdowns, mobile/tablet widths.
