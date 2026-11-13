@@ -1,0 +1,56 @@
+{
+ "name": "sfntc",
+ "source": {
+  "origin": "https://www.sfntc.com"
+ },
+ "rebuild": {
+  "origin": "http://localhost:3017",
+  "preview": "https://{ref}--sfntc--adobedrago.aem.page",
+  "repo": "..",
+  "da": {
+   "org": "AdobeDrago",
+   "site": "sfntc"
+  }
+ },
+ "access": {
+  "mode": "live",
+  "profileDir": "work/.browser-profile"
+ },
+ "widths": [
+  1440,
+  1280
+ ],
+ "height": 900,
+ "blockRequests": [],
+ "hide": [],
+ "invisible": [
+  ".content-carousel .slide-content",
+  ".content-carousel .swiper-pagination",
+  ".carousel .carousel-content",
+  ".carousel .carousel-dots"
+ ],
+ "freezeCss": [
+  "html { scrollbar-width: none; }",
+  "::-webkit-scrollbar { display: none; }"
+ ],
+ "hideIframes": true,
+ "consent": true,
+ "video": {
+  "providers": "all"
+ },
+ "carousels": [
+  "slick",
+  "swiper",
+  "hook"
+ ],
+ "scroll": {
+  "max": 20000,
+  "step": 500,
+  "wait": 150
+ },
+ "gate": {
+  "pixel": 0.99,
+  "tolerance": 0.5,
+  "threshold": 0.1
+ }
+}

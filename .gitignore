@@ -11,3 +11,16 @@ helix-importer-ui
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+work/
+
+# parity rebuild: local preview output and local copies of DA media
+/index.html
+/nav.plain.html
+/footer.plain.html
+/media/
+/our-*.html
+/our-*/
+/transforming-tobacco.html
+/want-to-quit-smoking.html
+/underage-tobacco-prevention.html
+/sfntc-foundation.html

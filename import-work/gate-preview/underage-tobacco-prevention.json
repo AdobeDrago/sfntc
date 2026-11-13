@@ -1,0 +1,40 @@
+{
+ "site": "../site.json",
+ "page": "underage-tobacco-prevention",
+ "source": "https://www.sfntc.com/underage-tobacco-prevention/",
+ "rebuild": "https://sfntc-pages-parity--sfntc--adobedrago.aem.page/underage-tobacco-prevention",
+ "widths": [
+  1440,
+  1280
+ ],
+ "out": "work/gate-preview/underage-tobacco-prevention",
+ "bundle": "../work/bundles/underage-tobacco-prevention",
+ "timelines": [],
+ "sections": [
+  {
+   "name": "header",
+   "source": "header.site-header",
+   "rebuild": "header"
+  },
+  {
+   "name": "page-header",
+   "source": "main .page-header",
+   "rebuild": "main .page-header"
+  },
+  {
+   "name": "crumbs",
+   "source": "main > .page-container",
+   "rebuild": "main .page-header-crumbs"
+  },
+  {
+   "name": "content1",
+   "source": "main .entry-content > :nth-child(1)",
+   "rebuild": "main > .section:nth-child(2)"
+  },
+  {
+   "name": "footer",
+   "source": "footer.site-footer",
+   "rebuild": "footer"
+  }
+ ]
+}

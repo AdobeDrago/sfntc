@@ -147,12 +147,31 @@ function decorateButtons(main) {
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
+/**
+ * Keeps the box of content images at the ratio of their authored width/height, even when
+ * a smaller rendition with a slightly different ratio is loaded.
+ * @param {Element} main The main container element
+ */
+function decorateImages(main) {
+  // DA wraps the first line of every list item in a paragraph: unwrap it
+  main.querySelectorAll('.default-content-wrapper li > p:first-child').forEach((p) => p.replaceWith(...p.childNodes));
+  main.querySelectorAll('.default-content-wrapper picture > img[width][height]').forEach((img) => {
+    img.style.aspectRatio = `${img.getAttribute('width')} / ${img.getAttribute('height')}`;
+  });
+}
+
+// eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  // the metadata block leaves an empty trailing section behind: drop it so :last-child rules work
+  main.querySelectorAll(':scope > .section').forEach((section) => {
+    if (!section.children.length) section.remove();
+  });
   decorateBlocks(main);
   decorateButtons(main);
+  decorateImages(main);
 }
 
 /**

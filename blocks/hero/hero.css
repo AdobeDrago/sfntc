@@ -1,37 +1,57 @@
-.hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
-}
-
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
-}
-
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
   box-sizing: border-box;
+  max-width: 95%;
+  margin: 0 32px;
+  padding: 70px 50px;
 }
 
-.hero img {
-  object-fit: cover;
+.hero .hero-media {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero .hero-card {
+  position: relative;
+  box-sizing: border-box;
+  width: 583px;
+  max-width: 100%;
+  padding: 60px 77px;
+  border-radius: 6px;
+  background-color: rgb(237 234 230 / 85%);
+  text-align: center;
+}
+
+.hero .hero-card h2 {
+  margin-bottom: 35px;
+  font-size: 34px;
+  line-height: 51px;
+  letter-spacing: 3.4px;
+}
+
+.hero .hero-card h2::after {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: 3px;
+  background-color: var(--link-color);
+  content: '';
 }
 
-@media (width >= 900px) {
+.hero .hero-card p {
+  margin: 0 0 5px;
+  text-align: center;
+}
+
+.hero .hero-card a.button {
+  line-height: 32px;
+}
+
+@media (width >= 1400px) {
   .hero {
-    padding: 40px 32px;
+    margin: 0 37px;
   }
 }

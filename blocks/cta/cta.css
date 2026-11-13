@@ -1,0 +1,203 @@
+.cta {
+  box-sizing: border-box;
+  max-width: 95%;
+  margin: 0 32px;
+}
+
+.cta h2 {
+  position: relative;
+}
+
+.cta h2::after {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: currentcolor;
+  content: '';
+}
+
+.cta p {
+  margin: 0;
+}
+
+.cta.banner p,
+.cta.dual p {
+  display: contents;
+}
+
+.cta h2,
+.cta h3 {
+  display: block;
+  margin-top: 0;
+}
+
+.cta h3 {
+  position: static;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* image: photo left, text right */
+.cta.image {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.cta .cta-media {
+  background-position: center;
+  background-size: cover;
+}
+
+.cta.image .cta-media {
+  flex: 1 1 50%;
+  min-width: 0;
+}
+
+
+
+.cta.image .cta-text {
+  display: flex;
+  flex: 1 1 50%;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 100px;
+  background-color: #edeae6;
+}
+
+.cta.image .cta-inner {
+  width: min(481px, 100%);
+}
+
+.cta.image a.button {
+  text-align: start;
+}
+
+.cta.image h2 {
+  display: inline-block;
+  margin-bottom: 35px;
+  font-size: 34px;
+  line-height: 51px;
+  letter-spacing: 3.4px;
+}
+
+.cta.image h2::after {
+  background-color: var(--link-color);
+}
+
+.cta.image p:not(:has(a.button)) {
+  margin-bottom: 30px;
+}
+
+/* banner: full-width photo with centered text */
+.cta.banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 380px;
+  isolation: isolate;
+  color: #f3f1ee;
+  text-align: center;
+}
+
+.cta.banner .cta-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.cta.banner .cta-text,
+.cta.banner .cta-inner {
+  display: contents;
+}
+
+.cta.banner h2 {
+  max-width: 90%;
+  margin-bottom: 20px;
+  font-size: 34px;
+  line-height: 51px;
+  letter-spacing: 3.4px;
+}
+
+.cta.banner h3 {
+  margin: 0 0 33px;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 42px;
+}
+
+/* dual: two cards */
+.cta.dual .cta-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  margin: 70px auto;
+  width: 1088px;
+}
+
+.cta.dual .cta-card {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: 327px;
+  padding: 60px 97px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.cta.dual .cta-card:first-child {
+  margin-right: 8px;
+  background-color: var(--link-color);
+  color: #f3f1ee;
+}
+
+.cta.dual .cta-card:last-child {
+  margin-left: 8px;
+  background-color: #edeae6;
+}
+
+.cta.dual h2 {
+  margin-bottom: 35px;
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: 2.8px;
+}
+
+.cta.dual h3 {
+  margin: 0 0 33px;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 33px;
+}
+
+.cta.dual .cta-card:last-child h2,
+.cta.dual .cta-card:last-child h3 {
+  margin-bottom: 23px;
+  line-height: 27px;
+}
+
+.cta.dual .cta-card:last-child h2 {
+  line-height: 42px;
+}
+
+.cta.dual .cta-card:first-child a.button {
+  background-color: #f3f1ee;
+  color: #000;
+}
+
+@media (width >= 1400px) {
+  .cta {
+    margin-right: 37px;
+    margin-left: 37px;
+  }
+
+}
