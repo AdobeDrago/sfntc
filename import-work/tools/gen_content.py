@@ -144,6 +144,9 @@ def render(n, page, base='https://www.sfntc.com'):
     if t == 'a':
         href = n.attrs.get('href', '')
         href = re.sub(r'^https?://(www\.)?sfntc\.com', '', href) or '/'
+        # EDS serves /path, not /path/ (the WordPress source uses trailing slashes)
+        if href.startswith('/') and len(href) > 1:
+            href = re.sub(r'^(/[^#?]*[^/#?])/(?=$|[#?])', r'\1', href)
         return f'<a href="{href}">{inner}</a>'
     if t == 'p' and inner.strip() in ('&nbsp;', '') and 'overlay-text' not in n.cls():
         # DA drops paragraphs that only hold a non-breaking space: use a spacer block instead
