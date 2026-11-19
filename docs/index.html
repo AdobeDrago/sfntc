@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santa Fe Natural Tobacco — sfntc.com → EDS handover</title>
+<meta name="description" content="Thirteen pages plus nav and footer rebuilt on EDS: home, Our Company, Our Product, Our Commitment (with sub-pages), SFNTC Foundation, Transforming Tobacco, Underage Tobacco Prevention and Want to Quit Smoking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    /* Viasat brand (mirrors styles/styles.css and block CSS) */
+    --accent: #2a5db0;
+    --accent-hover: #204b90;
+    --accent-text: #1f4e99; /* AA-compliant on light bg */
+    --accent-on-dark: #9bbcf5;
+    --ink: #1b2433;
+    --ink-alt: #1b2433;
+    --accent-pale: #e8f0fc;
+    
+
+    --gray-50: #ffffff;
+    --gray-75: #fafbfc;
+    --gray-100: #f2f5f8;
+    --gray-200: #e6eaee;
+    --gray-300: #dde2e7;
+    --gray-400: #c4ccd3;
+    --gray-500: #a9b3bc;
+    --gray-600: #5f6b75;
+    --gray-700: #66727c;
+    --gray-800: #465967;
+    --gray-900: #202e39;
+
+    --font: 'Source Sans 3', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --mono: 'Source Code Pro', 'Fira Mono', 'Courier New', monospace;
+    --sidebar-width: 248px;
+    --content-max: 940px;
+    --header-h: 56px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--gray-900);
+    background: var(--gray-50);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  a { color: var(--accent-text); }
+
+  /* ── TOP NAV ── */
+  .topnav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--header-h);
+    background: var(--ink-alt);
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    gap: 16px;
+    z-index: 100;
+  }
+  .topnav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+  }
+  .topnav-logo .mark {
+    width: 30px; height: 30px;
+    border-radius: 6px;
+    background: var(--accent-on-dark);
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .topnav-divider { width: 1px; height: 20px; background: #3c4c58; }
+  .topnav-title {
+    color: #d3dae0;
+    font-size: 14px;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .topnav-badge {
+    margin-left: auto;
+    background: var(--accent-on-dark);
+    color: var(--ink);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  /* ── LAYOUT ── */
+  .layout { display: flex; margin-top: var(--header-h); min-height: calc(100vh - var(--header-h)); }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+    position: sticky;
+    top: var(--header-h);
+    height: calc(100vh - var(--header-h));
+    overflow-y: auto;
+    border-right: 1px solid var(--gray-200);
+    background: var(--gray-75);
+    padding: 24px 0 40px;
+  }
+  .sidebar-section { margin-bottom: 8px; }
+  .sidebar-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray-600);
+    padding: 8px 20px 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 20px;
+    font-size: 13px;
+    color: var(--gray-800);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: background 0.1s, color 0.1s, border-color 0.1s;
+  }
+  .sidebar-link:hover { background: var(--gray-200); color: var(--gray-900); }
+  .sidebar-link.active {
+    background: var(--accent-pale);
+    color: var(--accent-text);
+    border-left-color: var(--accent);
+    font-weight: 700;
+  }
+  .sidebar-link .icon { width: 16px; height: 16px; opacity: 0.6; flex-shrink: 0; }
+  .sidebar-link.active .icon { opacity: 1; }
+
+  /* ── MAIN ── */
+  .main { flex: 1; min-width: 0; padding: 48px 56px 80px; }
+  .main-inner { max-width: var(--content-max); }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--gray-200);
+    margin-bottom: 48px;
+    scroll-margin-top: calc(var(--header-h) + 48px);
+  }
+  .page-hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-text);
+    margin-bottom: 8px;
+  }
+  .page-hero h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .page-hero-sub { font-size: 16px; color: var(--gray-700); max-width: 640px; line-height: 1.5; }
+
+  /* ── SECTIONS ── */
+  .doc-section { margin-bottom: 56px; scroll-margin-top: calc(var(--header-h) + 24px); }
+  .doc-section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+  .section-rule { height: 1px; background: var(--gray-200); margin: 12px 0 24px; }
+  .doc-section h3 { font-size: 14px; font-weight: 700; color: var(--gray-900); margin: 24px 0 8px; }
+  .doc-section p { font-size: 14px; color: var(--gray-800); margin-bottom: 12px; line-height: 1.65; }
+
+  /* ── SECTION ICON BADGE ── */
+  .section-icon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .icon-purple { background: var(--accent-pale); color: var(--accent); }
+  .icon-ink    { background: #eceef0; color: var(--ink); }
+  .icon-green  { background: #eaf6f1; color: #268e6c; }
+  .icon-seafoam{ background: #e6f4f4; color: #16878c; }
+  .icon-orange { background: #fff4e5; color: #da7b11; }
+  .icon-blue   { background: #e9f1fc; color: #0d51b5; }
+
+  /* ── URL CARDS ── */
+  .url-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .url-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .url-card:hover { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .url-card-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--gray-600);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .url-card-label .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .dot-purple { background: var(--accent); }
+  .dot-ink    { background: var(--ink); }
+  .dot-green  { background: #268e6c; }
+  .dot-orange { background: #da7b11; }
+  .url-card-title { font-size: 13px; font-weight: 700; color: var(--gray-900); }
+  .url-card-url { font-size: 12px; font-family: var(--mono); color: var(--accent-text); word-break: break-all; }
+  .url-card-desc { font-size: 12px; color: var(--gray-600); margin-top: 2px; }
+
+  /* ── CODE BLOCKS ── */
+  .code-block {
+    background: var(--ink);
+    color: #d4d4d4;
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    line-height: 1.6;
+    overflow-x: auto;
+    margin: 8px 0 4px;
+    white-space: pre;
+  }
+  .code-block .cmt  { color: #7fb77e; }
+  .code-inline {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-300);
+    color: var(--gray-900);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  /* ── NOTICES ── */
+  .notice {
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 13px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  .notice-icon { flex-shrink: 0; margin-top: 1px; }
+  .notice a { color: inherit; }
+  .notice.info     { background: var(--accent-pale); color: #17396f; border-left: 3px solid var(--accent); }
+  .notice.tip      { background: #eaf6f1; color: #1a6b50; border-left: 3px solid #268e6c; }
+  .notice.warning  { background: #fff4e5; color: #8a4b08; border-left: 3px solid #da7b11; }
+
+  /* ── BLOCKS GRID ── */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+  .skill-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; padding: 14px 16px; }
+  .skill-card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .skill-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 10px;
+  }
+  .tag-js  { background: #fff8d6; color: #8a5e00; }
+  .tag-core{ background: var(--gray-100); color: var(--gray-700); }
+  .tag-poli{ background: var(--accent-pale); color: var(--accent-text); }
+  .skill-card-name { font-size: 13px; font-weight: 700; color: var(--gray-900); font-family: var(--mono); }
+  .skill-card-desc { font-size: 12px; color: var(--gray-600); line-height: 1.5; }
+
+  /* ── PIPELINE DIAGRAM ── */
+  .arch-diagram { border: 1px solid var(--gray-200); border-radius: 8px; padding: 24px; background: var(--gray-75); margin: 16px 0; }
+  .arch-row { display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap; }
+  .arch-node { padding: 8px 16px; border-radius: 6px; font-size: 12px; font-weight: 700; text-align: center; min-width: 110px; }
+  .arch-arrow { font-size: 18px; color: var(--gray-400); }
+  .node-a { background: var(--accent-pale); color: var(--accent-text); }
+  .node-b { background: #eceef0; color: var(--ink); }
+  .node-c { background: #eaf6f1; color: #1a6b50; }
+  .node-d { background: #fff4e5; color: #8a4b08; }
+
+  /* ── TABLE ── */
+  .table-scroll { overflow-x: auto; }
+  .spec-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+  .spec-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--gray-600);
+    padding: 8px 12px;
+    border-bottom: 2px solid var(--gray-200);
+    background: var(--gray-75);
+  }
+  .spec-table td { padding: 9px 12px; border-bottom: 1px solid var(--gray-200); color: var(--gray-800); vertical-align: top; }
+  .spec-table tr:last-child td { border-bottom: none; }
+  .spec-table td:first-child { font-weight: 700; color: var(--gray-900); }
+  .spec-table td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* ── STAT ROW ── */
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 16px 0; }
+  .stat-card { border: 1px solid var(--gray-200); border-radius: 8px; padding: 16px; background: var(--gray-75); }
+  .stat-num { font-size: 26px; font-weight: 700; color: var(--accent); line-height: 1.1; }
+  .stat-label { font-size: 12px; color: var(--gray-600); margin-top: 4px; }
+
+  /* ── SWATCHES ── */
+  .swatch-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 12px 0; }
+  .swatch { border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; font-size: 12px; }
+  .swatch-chip { height: 44px; }
+  .swatch-meta { padding: 8px 10px; }
+  .swatch-meta strong { display: block; color: var(--gray-900); }
+  .swatch-meta code { font-family: var(--mono); color: var(--gray-600); }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    border-top: 1px solid var(--gray-200);
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 12px;
+    color: var(--gray-600);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .doc-footer a { text-decoration: none; }
+
+  /* ── STATUS PILLS ── */
+  .nav-status {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 1px 6px;
+    border-radius: 8px;
+    text-transform: uppercase;
+  }
+  .ns-progress { background: #fff4e5; color: #8a4b08; }
+  .ns-done     { background: #eaf6f1; color: #1a6b50; }
+
+  .status-badge {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 3px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+  }
+  .sb-progress { background: #fff4e5; color: #8a4b08; }
+  .sb-done     { background: #eaf6f1; color: #1a6b50; }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 4px 0; }
+  .check-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    background: var(--gray-50);
+  }
+  .check-mark {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .cm-done    { background: #eaf6f1; color: #268e6c; }
+  .cm-done::before { content: '✓'; }
+  .cm-partial { background: #fff4e5; color: #da7b11; }
+  .cm-partial::before { content: '–'; }
+  .cm-todo    { background: var(--gray-100); color: var(--gray-500); }
+  .cm-todo::before { content: '○'; }
+  .check-body { flex: 1; }
+  .check-title { font-weight: 700; font-size: 13px; color: var(--gray-900); }
+  .check-note  { font-size: 12px; color: var(--gray-600); line-height: 1.5; }
+
+  .req-list { margin: 8px 0 0 18px; font-size: 13px; color: var(--gray-700); }
+  .req-list li { margin-bottom: 4px; }
+
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px 60px; }
+    .page-hero h1 { font-size: 24px; }
+    .url-grid { grid-template-columns: 1fr; }
+    .topnav-title { display: none; }
+  }
+
+/* ── ADDITIONS FOR PORTFOLIO / SITE PAGES ── */
+.topnav select { margin-left: auto; background: #2a3550; color: #fff; border: 1px solid #3c4c70; border-radius: 6px; padding: 5px 8px; font: inherit; font-size: 13px; max-width: 240px; }
+.topnav-badge { margin-left: 12px; }
+.sidebar-back { display: block; padding: 6px 20px 14px; font-size: 12px; font-weight: 700; text-decoration: none; }
+.pill { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; white-space: nowrap; }
+.pill.done { background: #eaf6f1; color: #1a6b50; }
+.pill.warn { background: #fff4e5; color: #8a4b08; }
+.pill.todo { background: var(--gray-100); color: var(--gray-700); }
+.pill.info { background: var(--accent-pale); color: var(--accent-text); }
+.spec-table td.mono, .mono { font-family: var(--mono); font-size: 12px; }
+.spec-table td a { word-break: break-word; }
+.spec-table tr.sub td { background: var(--gray-75); }
+.muted { color: var(--gray-600); }
+.small { font-size: 12px; }
+details.fold { border: 1px solid var(--gray-200); border-radius: 8px; margin: 12px 0; background: var(--gray-50); }
+details.fold > summary { cursor: pointer; padding: 10px 14px; font-weight: 700; font-size: 13px; color: var(--gray-900); }
+details.fold > .fold-body { padding: 0 14px 12px; }
+.da-table { border-collapse: collapse; margin: 10px 0; font-size: 12px; width: 100%; max-width: 640px; background: #fff; }
+.da-table th { background: #f4ecf8; color: #4a2c5e; text-align: left; padding: 6px 10px; border: 1px solid #d9cce3; font-weight: 700; font-family: var(--mono); }
+.da-table td { border: 1px solid #d9cce3; padding: 6px 10px; color: var(--gray-800); vertical-align: top; }
+.da-table td.empty { color: var(--gray-500); font-style: italic; }
+.block-card { border: 1px solid var(--gray-200); border-radius: 8px; padding: 16px 18px; margin: 14px 0; background: var(--gray-50); }
+.block-card h3 { margin-top: 0; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.block-card h3 code { font-family: var(--mono); }
+.kv { display: grid; grid-template-columns: 150px 1fr; gap: 4px 12px; font-size: 13px; margin: 8px 0; }
+.kv dt { color: var(--gray-600); font-weight: 700; }
+.kv dd { color: var(--gray-900); min-width: 0; word-break: break-word; }
+.tree { font-family: var(--mono); font-size: 12.5px; line-height: 1.7; background: var(--gray-75); border: 1px solid var(--gray-200); border-radius: 8px; padding: 14px 16px; overflow-x: auto; white-space: pre; color: var(--gray-800); }
+.timeline { list-style: none; border-left: 2px solid var(--gray-200); margin: 8px 0 8px 6px; padding-left: 18px; }
+.timeline li { margin-bottom: 10px; font-size: 13px; position: relative; }
+.timeline li::before { content: ''; position: absolute; left: -25px; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.timeline .when { color: var(--gray-600); font-size: 12px; font-family: var(--mono); margin-right: 6px; }
+.matrix td, .matrix th { text-align: center; padding: 7px 8px; }
+.matrix td:first-child, .matrix th:first-child { text-align: left; }
+.matrix .yes { color: #1a6b50; font-weight: 700; }
+.matrix .cust { color: var(--accent-text); font-weight: 700; }
+.matrix .no { color: var(--gray-400); }
+.site-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; margin: 14px 0; }
+.site-card { border: 1px solid var(--gray-200); border-radius: 10px; padding: 16px 18px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 6px; background: #fff; transition: border-color .15s, box-shadow .15s; }
+.site-card:hover { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.site-card h3 { margin: 0; font-size: 16px; color: var(--ink); }
+.site-card .dom { font-family: var(--mono); font-size: 12px; color: var(--accent-text); }
+.site-card .meta { font-size: 12px; color: var(--gray-700); display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+.site-card p { font-size: 13px; color: var(--gray-800); margin: 4px 0 0; line-height: 1.5; }
+.swatch-chip.bordered { border-bottom: 1px solid var(--gray-200); }
+.type-sample { border: 1px solid var(--gray-200); border-radius: 8px; padding: 10px 14px; margin: 6px 0; font-size: 13px; }
+.type-sample b { font-family: var(--mono); font-size: 12px; color: var(--gray-700); }
+.hl-list { margin: 6px 0 12px 18px; font-size: 14px; color: var(--gray-800); line-height: 1.6; }
+.hl-list li { margin-bottom: 4px; }
+.table-scroll { max-width: 100%; }
+@media (max-width: 768px) { .topnav select { max-width: 150px; } .kv { grid-template-columns: 1fr; } .topnav-badge { display: none; } }
+
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a class="topnav-logo" href="#overview"><span class="mark">R</span>Reynolds EDS</a>
+  <div class="topnav-divider"></div>
+  <span class="topnav-title">sfntc.com → EDS · Site handover</span>
+  <span class="topnav-badge" style="margin-left:auto">Handover</span>
+</nav>
+<div class="layout">
+<nav class="sidebar" aria-label="Page navigation">
+<div class="sidebar-section"><div class="sidebar-label">Overview</div>
+<a class="sidebar-link active" href="#overview"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h5v5H2zm7 0h5v5H9zM2 9h5v5H2zm7 0h5v5H9z"/></svg>Overview</a>
+<a class="sidebar-link" href="#use-case"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.75A.75.75 0 012.75 2h7.5l3.5 3.5v7.75a.75.75 0 01-.75.75h-10.5a.75.75 0 01-.75-.75zM3.5 3.5v9h9V6H9.5V3.5z"/></svg>Use case &amp; requirements</a>
+<a class="sidebar-link" href="#references"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95z"/></svg>Key references</a>
+<a class="sidebar-link" href="#deliverables"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 2A2.5 2.5 0 002 4.5v7A2.5 2.5 0 004.5 14h7a2.5 2.5 0 002.5-2.5v-7A2.5 2.5 0 0011.5 2zM3.5 4.5a1 1 0 011-1h7a1 1 0 011 1v7a1 1 0 01-1 1h-7a1 1 0 01-1-1z"/></svg>Deliverables</a>
+</div>
+<div class="sidebar-section"><div class="sidebar-label">DA.live content</div>
+<a class="sidebar-link" href="#pages"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.75A.75.75 0 012.75 2h7.5l3.5 3.5v7.75a.75.75 0 01-.75.75h-10.5a.75.75 0 01-.75-.75zM3.5 3.5v9h9V6H9.5V3.5z"/></svg>Pages in DA.live</a>
+<a class="sidebar-link" href="#navigation"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8.22 2.97a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06l2.97-2.97H3.75a.75.75 0 010-1.5h7.44L8.22 4.03a.75.75 0 010-1.06z"/></svg>Navigation &amp; links</a>
+<a class="sidebar-link" href="#header"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0114.25 14H1.75A1.75 1.75 0 010 12.25zm1.75-.25a.25.25 0 00-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25v-8.5a.25.25 0 00-.25-.25z"/></svg>Header &amp; footer</a>
+<a class="sidebar-link" href="#blocks"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 2A2.5 2.5 0 002 4.5v7A2.5 2.5 0 004.5 14h7a2.5 2.5 0 002.5-2.5v-7A2.5 2.5 0 0011.5 2zM3.5 4.5a1 1 0 011-1h7a1 1 0 011 1v7a1 1 0 01-1 1h-7a1 1 0 01-1-1z"/></svg>Content blocks</a>
+<a class="sidebar-link" href="#brand"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M3 2.5A.5.5 0 013.5 2h9a.5.5 0 01.5.5V4a.5.5 0 01-1 0v-1H8.5v10H10a.5.5 0 010 1H6a.5.5 0 010-1h1.5V3h-3v1a.5.5 0 01-1 0z"/></svg>Brand design system</a>
+</div>
+<div class="sidebar-section"><div class="sidebar-label">GitHub</div>
+<a class="sidebar-link" href="#github"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M9.5 3.25a2.25 2.25 0 11-3 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 1111 3.25z"/></svg>GitHub implementation</a>
+</div>
+<div class="sidebar-section"><div class="sidebar-label">Quality</div>
+<a class="sidebar-link" href="#fidelity"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>Parity gate &amp; results</a>
+</div>
+<div class="sidebar-section"><div class="sidebar-label">Handoff</div>
+<a class="sidebar-link" href="#decisions"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.75A.75.75 0 012.75 2h7.5l3.5 3.5v7.75a.75.75 0 01-.75.75h-10.5a.75.75 0 01-.75-.75zM3.5 3.5v9h9V6H9.5V3.5z"/></svg>Decisions &amp; assumptions</a>
+<a class="sidebar-link" href="#limitations"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575z"/></svg>Known limitations</a>
+<a class="sidebar-link" href="#next-steps"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8.22 2.97a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06l2.97-2.97H3.75a.75.75 0 010-1.5h7.44L8.22 4.03a.75.75 0 010-1.06z"/></svg>Next steps</a>
+</div>
+<div class="sidebar-section"><div class="sidebar-label">Reference</div>
+<a class="sidebar-link" href="#dev-notes"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 2A2.5 2.5 0 002 4.5v7A2.5 2.5 0 004.5 14h7a2.5 2.5 0 002.5-2.5v-7A2.5 2.5 0 0011.5 2zM3.5 4.5a1 1 0 011-1h7a1 1 0 011 1v7a1 1 0 01-1 1h-7a1 1 0 01-1-1z"/></svg>Developer notes</a>
+</div>
+</nav>
+<main class="main"><div class="main-inner">
+<div class="page-hero" id="overview">
+<div class="page-hero-eyebrow">Site handover · sfntc.com</div>
+<h1>Santa Fe Natural Tobacco on Edge Delivery Services</h1>
+<p class="page-hero-sub">Thirteen pages plus nav and footer rebuilt on EDS: home, Our Company, Our Product, Our Commitment (with sub-pages), SFNTC Foundation, Transforming Tobacco, Underage Tobacco Prevention and Want to Quit Smoking.</p>
+<p style="margin-top:14px"><span class="pill warn">Migrated · pending QA</span> <span class="muted small">&nbsp;Tracker status: Migrated - pending QA</span></p>
+<div class="stat-row"><div class="stat-card"><div class="stat-num">13</div><div class="stat-label">DA pages (excl. nav/footer)</div></div><div class="stat-card"><div class="stat-num">12</div><div class="stat-label">Blocks in repo</div></div><div class="stat-card"><div class="stat-num">9</div><div class="stat-label">Blocks changed or added</div></div><div class="stat-card"><div class="stat-num">9</div><div class="stat-label">Block variants authored</div></div><div class="stat-card"><div class="stat-num">1/2</div><div class="stat-label">PRs merged / total</div></div><div class="stat-card"><div class="stat-num">9</div><div class="stat-label">Commits on main</div></div></div>
+</div><section class="doc-section" id="use-case">
+<h2><span class="section-icon icon-purple"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.75A.75.75 0 012.75 2h7.5l3.5 3.5v7.75a.75.75 0 01-.75.75h-10.5a.75.75 0 01-.75-.75zM3.5 3.5v9h9V6H9.5V3.5z"/></svg></span>Use case &amp; requirements</h2>
+<div class="section-rule"></div>
+<div class="table-scroll"><table class="spec-table"><thead><tr><th>Area</th><th>What is built</th></tr></thead><tbody><tr><td>Scope</td><td>13 source URLs from the sitemap (pages.json): home, our-company, our-commitment, sfntc-foundation and their children.</td></tr><tr><td>Templates</td><td>Two: home (4 sections) and inner (page-header, breadcrumb, entry content).</td></tr><tr><td>Visual language</td><td>Oswald (variable, latin) with Open Sans 800 for buttons; orange (#ed5100) links and underline accents; parchment header card.</td></tr><tr><td>Interactive</td><td>Four dropdowns in the header (CSS hover/focus, click on touch); statistics carousel on the foundation page (no autoplay).</td></tr></tbody></table></div><h3>What stands out in this build</h3><ul class="hl-list"><li>New blocks written for this site: page-header (title band + breadcrumb), cta (image / banner / dual), carousel (statistic slides), spacer, table, columns variant contact.</li><li>Default content styling for inner pages: 721px column, h2/h3, lists, band highlight + quote, title-center, space-after.</li><li>Two templates share one header/footer pair; 13 DA pages authored with images under per-page media folders.</li></ul>
+</section><section class="doc-section" id="references">
+<h2><span class="section-icon icon-blue"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95z"/></svg></span>Key references</h2>
+<div class="section-rule"></div>
+<div class="url-grid"><a class="url-card" href="https://main--sfntc--adobedrago.aem.page/" target="_blank" rel="noopener">
+<span class="url-card-label"><span class="dot dot-purple"></span>Preview</span>
+<span class="url-card-title">main preview (.aem.page)</span>
+<span class="url-card-url">https://main--sfntc--adobedrago.aem.page/</span>
+<span class="url-card-desc">Branch main, content previewed from DA</span>
+</a><a class="url-card" href="https://main--sfntc--adobedrago.aem.live/" target="_blank" rel="noopener">
+<span class="url-card-label"><span class="dot dot-green"></span>Live</span>
+<span class="url-card-title">main live (.aem.live)</span>
+<span class="url-card-url">https://main--sfntc--adobedrago.aem.live/</span>
+<span class="url-card-desc">Published content only</span>
+</a><a class="url-card" href="https://da.live/#/adobedrago/sfntc" target="_blank" rel="noopener">
+<span class="url-card-label"><span class="dot dot-ink"></span>Authoring</span>
+<span class="url-card-title">Document Authoring (DA.live)</span>
+<span class="url-card-url">https://da.live/#/adobedrago/sfntc</span>
+<span class="url-card-desc">Org adobedrago, site sfntc</span>
+</a><a class="url-card" href="https://github.com/AdobeDrago/sfntc" target="_blank" rel="noopener">
+<span class="url-card-label"><span class="dot dot-ink"></span>Code</span>
+<span class="url-card-title">GitHub · AdobeDrago/sfntc</span>
+<span class="url-card-url">https://github.com/AdobeDrago/sfntc</span>
+<span class="url-card-desc">Code, blocks, styles, import-work ledger</span>
+</a><a class="url-card" href="https://sfntc.com/" target="_blank" rel="noopener">
+<span class="url-card-label"><span class="dot dot-orange"></span>Production</span>
+<span class="url-card-title">sfntc.com</span>
+<span class="url-card-url">https://sfntc.com/</span>
+<span class="url-card-desc">Source site that is being migrated</span>
+</a></div><p class="small muted">HTTP status observed when this page was generated: preview <strong>200</strong>, preview /nav <strong>200</strong>, preview /footer <strong>200</strong>, live <strong>404</strong>, live /nav <strong>404</strong>.</p>
+</section><section class="doc-section" id="deliverables">
+<h2><span class="section-icon icon-seafoam"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 2A2.5 2.5 0 002 4.5v7A2.5 2.5 0 004.5 14h7a2.5 2.5 0 002.5-2.5v-7A2.5 2.5 0 0011.5 2zM3.5 4.5a1 1 0 011-1h7a1 1 0 011 1v7a1 1 0 01-1 1h-7a1 1 0 01-1-1z"/></svg></span>Deliverables</h2>
+<div class="section-rule"></div>
+<ul class="checklist"><li class="check-item"><span class="check-mark cm-done"></span><div class="check-body"><div class="check-title">Repository from aem-boilerplate</div><div class="check-note">AdobeDrago/sfntc with 9 commits on main; branches: main, sfntc-link-fix, sfntc-pages-parity.</div></div></li><li class="check-item"><span class="check-mark cm-todo"></span><div class="check-body"><div class="check-title">Brand setup applied</div><div class="check-note">No brand-setup commit found.</div></div></li><li class="check-item"><span class="check-mark cm-done"></span><div class="check-body"><div class="check-title">Header and footer fragments in DA</div><div class="check-note">/nav and /footer exist in DA.</div></div></li><li class="check-item"><span class="check-mark cm-done"></span><div class="check-body"><div class="check-title">Home page authored in DA</div><div class="check-note">index.html: 5 sections, 4 content block(s), 3 image(s).</div></div></li><li class="check-item"><span class="check-mark cm-done"></span><div class="check-body"><div class="check-title">Inner pages in DA</div><div class="check-note">12 pages beyond home authored.</div></div></li><li class="check-item"><span class="check-mark cm-done"></span><div class="check-body"><div class="check-title">Site-specific block code</div><div class="check-note">9 blocks added or changed vs. the boilerplate.</div></div></li><li class="check-item"><span class="check-mark cm-partial"></span><div class="check-body"><div class="check-title">Pull requests merged</div><div class="check-note">1 of 2 merged.</div></div></li><li class="check-item"><span class="check-mark cm-done"></span><div class="check-body"><div class="check-title">Parity ledger committed</div><div class="check-note">import-work/ledger.md is in the repo.</div></div></li><li class="check-item"><span class="check-mark cm-todo"></span><div class="check-body"><div class="check-title">Published to .aem.live</div><div class="check-note">Live returns 404: content is previewed but not yet published.</div></div></li><li class="check-item"><span class="check-mark cm-partial"></span><div class="check-body"><div class="check-title">QA sign-off</div><div class="check-note">Tracker status: Migrated - pending QA.</div></div></li></ul>
+</section><section class="doc-section" id="pages">
+<h2><span class="section-icon icon-purple"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.75A.75.75 0 012.75 2h7.5l3.5 3.5v7.75a.75.75 0 01-.75.75h-10.5a.75.75 0 01-.75-.75zM3.5 3.5v9h9V6H9.5V3.5z"/></svg></span>Pages in DA.live</h2>
+<div class="section-rule"></div>
+<p>DA.live holds <strong>13</strong> content documents plus the <code class="code-inline">/nav</code> and <code class="code-inline">/footer</code> fragments, read via the DA admin list and source APIs. Block names in the table are the class strings of the authored tables.</p><div class="table-scroll"><table class="spec-table"><thead><tr><th>Path (preview link)</th><th>Heading</th><th>Blocks authored</th><th>Sections</th><th>Images</th><th>Modified</th></tr></thead><tbody><tr><td><a href="https://main--sfntc--adobedrago.aem.page/" target="_blank" rel="noopener">/</a></td><td>OUR VISION</td><td>hero, cta image, cta banner, cta dual</td><td>5</td><td>3</td><td>2026-11-16</td></tr><tr><td><a href="https://main--sfntc--adobedrago.aem.page/our-commitment" target="_blank" rel="noopener">/our-commitment</a></td><td>Our Commitment</td><td>page-header</td><td>3</td><td>1</td><td>2026-11-16</td></tr><tr><td><a href="https://main--sfntc--adobedrago.aem.page/our-commitment/carolina-farm-stewardship-association" target="_blank" rel="noopener">/our-commitment/carolina-farm-stewardship-association</a></td><td>Organic Carolinas Initiative</td><td>page-header, spacer ×2</td><td>4</td><td>2</td><td>2026-11-16</td></tr><tr><td><a href="https://main--sfntc--adobedrago.aem.page/our-commitment/cigarette-waste" target="_blank" rel="noopener">/our-commitment/cigarette-waste</a></td><td>Cigarette Waste</td><td>page-header</td><td>5</td><td>1</td><td>2026-11-16</td></tr><tr><td><a href="https://main--sfntc--adobedrago.aem.page/our-commitment/what-you-can-do-to-help" target="_blank" rel="noopener">/our-commitment/what-you-can-do-to-help</a></td><td>What You Can Do to Help</td><td>page-header</td><td>3</td><td>1</td><td>2026-11-16</td></tr><tr><td><a href="https://main--sfntc--adobedrago.aem.page/our-company" target="_blank" rel="noopener">/our-company</a></td><td>Our Company</td><td>page-header</td><td>3</td><td>1</td><td>2026-11-16</td></tr><tr><td><a href="https://main--sfntc--adobedrago.aem.page/our-company/sfntc-vision" target="_blank" rel="noopener">/our-company/sfntc-vision</a></td><td>SFNTC Vision</td><td>page-header</td><td>4</td><td>1</td><td>2026-11-16</td></tr><tr><td><a href="https://main--sfntc--adobedrago.aem.page/our-product" target="_blank" rel="noopener">/our-product</a></td><td>Our Product</td><td>page-header</td><td>4</td><td>1</td><td>2026-11-16</td></tr><tr><td><a href="https://main--sfntc--adobedrago.aem.page/our-product/the-passion-behind-the-brand" target="_blank" rel="noopener">/our-product/the-passion-behind-the-brand</a></td><td>The Passion Behind the Brand</td><td>page-header</td><td>3</td><td>1</td><td>2026-11-16</td></tr><tr><td><a href="https://main--sfntc--adobedrago.aem.page/sfntc-foundation" target="_blank" rel="noopener">/sfntc-foundation</a></td><td>SFNTC Foundation</td><td>page-header, carousel, spacer ×11, table, columns contact</td><td>12</td><td>4</td><td>2026-11-16</td></tr><tr><td><a href="https://main--sfntc--adobedrago.aem.page/transforming-tobacco" target="_blank" rel="noopener">/transforming-tobacco</a></td><td>Transforming Tobacco</td><td>page-header</td><td>3</td><td>1</td><td>2026-11-16</td></tr><tr><td><a href="https://main--sfntc--adobedrago.aem.page/underage-tobacco-prevention" target="_blank" rel="noopener">/underage-tobacco-prevention</a></td><td>Underage Tobacco Prevention</td><td>page-header</td><td>3</td><td>1</td><td>2026-11-16</td></tr><tr><td><a href="https://main--sfntc--adobedrago.aem.page/want-to-quit-smoking" target="_blank" rel="noopener">/want-to-quit-smoking</a></td><td>Want To Quit Smoking?</td><td>page-header</td><td>3</td><td>0</td><td>2026-11-16</td></tr></tbody></table></div><h3>DA content tree</h3><div class="tree">da.live/#/adobedrago/sfntc
+├── footer.html
+├── index.html
+├── nav.html
+├── our-commitment.html
+├── our-company.html
+├── our-product.html
+├── sfntc-foundation.html
+├── transforming-tobacco.html
+├── underage-tobacco-prevention.html
+├── want-to-quit-smoking.html
+├── our-commitment/
+│   ├── carolina-farm-stewardship-association.html
+│   ├── cigarette-waste.html
+│   ├── what-you-can-do-to-help.html
+├── our-company/
+│   ├── sfntc-vision.html
+├── our-product/
+│   ├── the-passion-behind-the-brand.html
+└── media/   (18 files)
+    ├── media/home  [3]
+    ├── media/our-commitment  [1]
+    ├── media/our-commitment-carolina-farm-stewardship-association  [2]
+    ├── media/our-commitment-cigarette-waste  [1]
+    ├── media/our-commitment-what-you-can-do-to-help  [1]
+    ├── media/our-company  [1]
+    ├── media/our-company-sfntc-vision  [1]
+    ├── media/our-product  [1]
+    ├── media/our-product-the-passion-behind-the-brand  [1]
+    ├── media/sfntc-foundation  [4]
+    ├── media/transforming-tobacco  [1]
+    ├── media/underage-tobacco-prevention  [1]</div>
+</section><section class="doc-section" id="navigation">
+<h2><span class="section-icon icon-blue"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8.22 2.97a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06l2.97-2.97H3.75a.75.75 0 010-1.5h7.44L8.22 4.03a.75.75 0 010-1.06z"/></svg></span>Navigation &amp; links</h2>
+<div class="section-rule"></div>
+<p>Links were read from the authored <code class="code-inline">/nav</code> and <code class="code-inline">/footer</code> documents in DA. An internal link counts as <em>built</em> when a matching document exists in DA; otherwise it still points at a path that has not been migrated.</p><div class="table-scroll"><table class="spec-table"><thead><tr><th>Fragment</th><th>Links</th><th>Built in DA</th><th>Not yet migrated</th><th>External</th></tr></thead><tbody><tr><td>/nav</td><td class="num">15</td><td class="num">11</td><td class="num">0</td><td class="num">0</td></tr><tr><td>/footer</td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num">3</td></tr></tbody></table></div><details class="fold"><summary>Link labels authored in /nav (15)</summary><div class="fold-body small">Our Company · SFNTC Story · SFNTC Vision · Our Product · From Farm to Finished Product · The Passion Behind the Brand · OUR APPROACH · Transforming Tobacco · Underage Tobacco Prevention · Our Commitment · Discover Our Commitment · Cigarette Waste · What You Can Do to Help · Organic Carolinas Initiative · SFNTC Foundation</div></details>
+</section><section class="doc-section" id="header">
+<h2><span class="section-icon icon-ink"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0114.25 14H1.75A1.75 1.75 0 010 12.25zm1.75-.25a.25.25 0 00-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25v-8.5a.25.25 0 00-.25-.25z"/></svg></span>Header &amp; footer</h2>
+<div class="section-rule"></div>
+<dl class="kv"><dt>Header block</dt><dd><a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/header/header.js" target="_blank" rel="noopener">blocks/header/header.js</a> (2.5 KB) and <a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/header/header.css" target="_blank" rel="noopener">header.css</a> (3.4 KB)</dd><dt>Content source</dt><dd>DA document <code class="code-inline">/nav</code> loaded as a fragment (present).</dd><dt>Footer block</dt><dd><a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/footer/footer.js" target="_blank" rel="noopener">blocks/footer/footer.js</a> (1020 B) and <a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/footer/footer.css" target="_blank" rel="noopener">footer.css</a> (981 B)</dd><dt>Content source</dt><dd>DA document <code class="code-inline">/footer</code> (present).</dd></dl><p class="small muted">/nav: 1 sections, 15 links, 0 images. /footer: 1 sections, 3 links.</p><div class="notice info"><span class="notice-icon">ℹ</span><div>Both fragments are authored in DA as plain sections (no block tables). Section order inside the document drives the header and footer layout, so edit them in DA and re-preview <code class="code-inline">/nav</code> and <code class="code-inline">/footer</code> after any change.</div></div>
+</section><section class="doc-section" id="blocks">
+<h2><span class="section-icon icon-orange"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 2A2.5 2.5 0 002 4.5v7A2.5 2.5 0 004.5 14h7a2.5 2.5 0 002.5-2.5v-7A2.5 2.5 0 0011.5 2zM3.5 4.5a1 1 0 011-1h7a1 1 0 011 1v7a1 1 0 01-1 1h-7a1 1 0 01-1-1z"/></svg></span>Content blocks (DA authoring reference)</h2>
+<div class="section-rule"></div>
+<p>These are the <strong>content blocks authored in DA.live</strong> for this site. Each card shows the table an author builds in DA (first row = block name and variants, following rows = cells) taken from a live document, and where the implementation lives in GitHub.</p><p>Section styles used through a <code class="code-inline">section-metadata</code> block (<em>Style</em> row): <code class="code-inline">band</code>, <code class="code-inline">end-gap</code>, <code class="code-inline">flush-image</code>, <code class="code-inline">highlight</code>, <code class="code-inline">quote</code>, <code class="code-inline">space-after</code>, <code class="code-inline">space-after-list</code>, <code class="code-inline">title-center</code>.</p><div class="block-card">
+<h3><code>spacer</code> <span class="skill-tag tag-js">Custom / modified</span></h3>
+<p>Empty vertical gap, one paragraph high.</p>
+<table class="da-table"><tr><th colspan="1">spacer</th></tr></table>
+<dl class="kv">
+<dt>Authored on</dt><dd>13 block instances across 2 pages: <code class="code-inline">/our-commitment/carolina-farm-stewardship-association</code>, <code class="code-inline">/sfntc-foundation</code></dd>
+<dt>Implementation</dt><dd><a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/spacer/spacer.js" target="_blank" rel="noopener">blocks/spacer/spacer.js</a> (209 B) · <a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/spacer/spacer.css" target="_blank" rel="noopener">spacer.css</a> (135 B)</dd>
+<dt>CSS variants</dt><dd><span class="muted">none declared</span></dd>
+</dl>
+</div><div class="block-card">
+<h3><code>page-header</code> <span class="skill-tag tag-js">Custom / modified</span></h3>
+<p>Page title band with a breadcrumb line. Row 1: the page title. Row 2 (optional): breadcrumb text.</p>
+<table class="da-table"><tr><th colspan="1">page-header</th></tr><tr><td>Organic Carolinas Initiative</td></tr><tr><td>Our Commitment Organic Carolinas Initiative</td></tr></table>
+<dl class="kv">
+<dt>Authored on</dt><dd>12 block instances across 12 pages: <code class="code-inline">/our-commitment</code>, <code class="code-inline">/our-commitment/carolina-farm-stewardship-association</code>, <code class="code-inline">/our-commitment/cigarette-waste</code>, <code class="code-inline">/our-commitment/what-you-can-do-to-help</code>, <code class="code-inline">/our-company</code>, <code class="code-inline">/our-company/sfntc-vision</code> +6 more</dd>
+<dt>Implementation</dt><dd><a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/page-header/page-header.js" target="_blank" rel="noopener">blocks/page-header/page-header.js</a> (1.2 KB) · <a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/page-header/page-header.css" target="_blank" rel="noopener">page-header.css</a> (645 B)</dd>
+<dt>CSS variants</dt><dd><span class="muted">none declared</span></dd>
+</dl>
+</div><div class="block-card">
+<h3><code>hero</code> <span class="skill-tag tag-js">Custom / modified</span></h3>
+<p>Home hero: full-bleed photo with a translucent text card. Row 1: image. Row 2: heading, text, call to action.</p>
+<table class="da-table"><tr><th colspan="1">hero</th></tr><tr><td class="empty">(image / empty)</td></tr><tr><td>OUR VISION The people of Santa Fe Natural Tobacco Company (SFNTC) shar</td></tr></table>
+<dl class="kv">
+<dt>Authored on</dt><dd>1 block instance across 1 page: <code class="code-inline">/</code></dd>
+<dt>Implementation</dt><dd><a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/hero/hero.js" target="_blank" rel="noopener">blocks/hero/hero.js</a> (921 B) · <a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/hero/hero.css" target="_blank" rel="noopener">hero.css</a> (904 B)</dd>
+<dt>CSS variants</dt><dd><span class="muted">none declared</span></dd>
+</dl>
+</div><div class="block-card">
+<h3><code>cta image</code> <span class="skill-tag tag-js">Custom / modified</span></h3>
+<p>Call-to-action panels. Variants: image (photo left, text right), banner (text over a full-width photo), dual (two side-by-side cards).</p>
+<table class="da-table"><tr><th colspan="1">cta image</th></tr><tr><td class="empty">(image / empty)</td></tr><tr><td>DISCOVER OUR COMMITMENT Many of us share an aspiration to safeguard an</td></tr></table>
+<dl class="kv">
+<dt>Authored on</dt><dd>1 block instance across 1 page: <code class="code-inline">/</code></dd>
+<dt>Implementation</dt><dd><a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/cta/cta.js" target="_blank" rel="noopener">blocks/cta/cta.js</a> (1.6 KB) · <a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/cta/cta.css" target="_blank" rel="noopener">cta.css</a> (3.0 KB)</dd>
+<dt>CSS variants</dt><dd><code class="code-inline">banner</code>, <code class="code-inline">dual</code>, <code class="code-inline">image</code></dd>
+</dl>
+</div><div class="block-card">
+<h3><code>cta banner</code> <span class="skill-tag tag-js">Custom / modified</span></h3>
+<p>Call-to-action panels. Variants: image (photo left, text right), banner (text over a full-width photo), dual (two side-by-side cards).</p>
+<table class="da-table"><tr><th colspan="1">cta banner</th></tr><tr><td class="empty">(image / empty)</td></tr><tr><td>FROM FARM TO FINISHED PRODUCT How We Get From Seed To Cigarette See Ou</td></tr></table>
+<dl class="kv">
+<dt>Authored on</dt><dd>1 block instance across 1 page: <code class="code-inline">/</code></dd>
+<dt>Implementation</dt><dd><a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/cta/cta.js" target="_blank" rel="noopener">blocks/cta/cta.js</a> (1.6 KB) · <a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/cta/cta.css" target="_blank" rel="noopener">cta.css</a> (3.0 KB)</dd>
+<dt>CSS variants</dt><dd><code class="code-inline">banner</code>, <code class="code-inline">dual</code>, <code class="code-inline">image</code></dd>
+</dl>
+</div><div class="block-card">
+<h3><code>cta dual</code> <span class="skill-tag tag-js">Custom / modified</span></h3>
+<p>Call-to-action panels. Variants: image (photo left, text right), banner (text over a full-width photo), dual (two side-by-side cards).</p>
+<table class="da-table"><tr><th colspan="1">cta dual</th></tr><tr><td>SFNTC STORY Three Guys. One Vision. Learn More</td></tr><tr><td>WANT TO QUIT SMOKING? There are many resources available to help you a</td></tr></table>
+<dl class="kv">
+<dt>Authored on</dt><dd>1 block instance across 1 page: <code class="code-inline">/</code></dd>
+<dt>Implementation</dt><dd><a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/cta/cta.js" target="_blank" rel="noopener">blocks/cta/cta.js</a> (1.6 KB) · <a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/cta/cta.css" target="_blank" rel="noopener">cta.css</a> (3.0 KB)</dd>
+<dt>CSS variants</dt><dd><code class="code-inline">banner</code>, <code class="code-inline">dual</code>, <code class="code-inline">image</code></dd>
+</dl>
+</div><div class="block-card">
+<h3><code>carousel</code> <span class="skill-tag tag-js">Custom / modified</span></h3>
+<p>Statistic carousel: each row is one slide (heading + sub heading). All slides share one grid cell so the block is as tall as the tallest slide.</p>
+<table class="da-table"><tr><th colspan="1">carousel</th></tr><tr><td>Over $5 million donated to nationwide Native American causes</td></tr><tr><td>1997 Santa Fe Natural Tobacco Foundation was established</td></tr><tr><td>172 organizations serving Native American communities have been suppor</td></tr></table>
+<dl class="kv">
+<dt>Authored on</dt><dd>1 block instance across 1 page: <code class="code-inline">/sfntc-foundation</code></dd>
+<dt>Implementation</dt><dd><a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/carousel/carousel.js" target="_blank" rel="noopener">blocks/carousel/carousel.js</a> (1.3 KB) · <a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/carousel/carousel.css" target="_blank" rel="noopener">carousel.css</a> (1.1 KB)</dd>
+<dt>CSS variants</dt><dd><span class="muted">none declared</span></dd>
+</dl>
+</div><div class="block-card">
+<h3><code>table</code> <span class="skill-tag tag-js">Custom / modified</span></h3>
+<p>Plain data table: first row is the header row.</p>
+<table class="da-table"><tr><th colspan="3">table</th></tr><tr><td>Quarter</td><td>Completed Proposal Received By</td><td>Final Review</td></tr><tr><td>Q1</td><td>February 15</td><td>1st week of March</td></tr><tr><td>Q2</td><td>May 15</td><td>1st week of June</td></tr><tr><td>Q3</td><td>August 15</td><td>1st week of September</td></tr><tr><td>Q4</td><td>November 15</td><td>1st week of December</td></tr></table>
+<dl class="kv">
+<dt>Authored on</dt><dd>1 block instance across 1 page: <code class="code-inline">/sfntc-foundation</code></dd>
+<dt>Implementation</dt><dd><a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/table/table.js" target="_blank" rel="noopener">blocks/table/table.js</a> (816 B) · <a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/table/table.css" target="_blank" rel="noopener">table.css</a> (199 B)</dd>
+<dt>CSS variants</dt><dd><span class="muted">none declared</span></dd>
+</dl>
+</div><div class="block-card">
+<h3><code>columns contact</code> <span class="skill-tag tag-js">Custom / modified</span></h3>
+
+<table class="da-table"><tr><th colspan="2">columns contact</th></tr><tr><td>Email for questions or help, email SFNTCFoundation@rjrt.com .</td><td>Santa Fe Natural Tobacco Company Foundation 401 N. Main St. 10th Floor</td></tr></table>
+<dl class="kv">
+<dt>Authored on</dt><dd>1 block instance across 1 page: <code class="code-inline">/sfntc-foundation</code></dd>
+<dt>Implementation</dt><dd><a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/columns/columns.js" target="_blank" rel="noopener">blocks/columns/columns.js</a> (568 B) · <a href="https://github.com/AdobeDrago/sfntc/blob/main/blocks/columns/columns.css" target="_blank" rel="noopener">columns.css</a> (879 B)</dd>
+<dt>CSS variants</dt><dd><code class="code-inline">contact</code></dd>
+</dl>
+</div><h3>Blocks in the repo that no authored page uses yet</h3><div class="table-scroll"><table class="spec-table"><thead><tr><th>Block</th><th>JS</th><th>CSS</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://github.com/AdobeDrago/sfntc/tree/main/blocks/cards" target="_blank" rel="noopener">cards</a></td><td>745 B</td><td>431 B</td><td>Boilerplate, unchanged</td></tr><tr><td><a href="https://github.com/AdobeDrago/sfntc/tree/main/blocks/footer" target="_blank" rel="noopener">footer</a></td><td>1020 B</td><td>981 B</td><td>Header/footer/fragment: loaded by the page shell</td></tr><tr><td><a href="https://github.com/AdobeDrago/sfntc/tree/main/blocks/fragment" target="_blank" rel="noopener">fragment</a></td><td>1.9 KB</td><td>40 B</td><td>Header/footer/fragment: loaded by the page shell</td></tr><tr><td><a href="https://github.com/AdobeDrago/sfntc/tree/main/blocks/header" target="_blank" rel="noopener">header</a></td><td>2.5 KB</td><td>3.4 KB</td><td>Header/footer/fragment: loaded by the page shell</td></tr><tr><td><a href="https://github.com/AdobeDrago/sfntc/tree/main/blocks/widget" target="_blank" rel="noopener">widget</a></td><td>2.9 KB</td><td>30 B</td><td>Boilerplate, unchanged</td></tr></tbody></table></div>
+</section><section class="doc-section" id="brand">
+<h2><span class="section-icon icon-green"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M3 2.5A.5.5 0 013.5 2h9a.5.5 0 01.5.5V4a.5.5 0 01-1 0v-1H8.5v10H10a.5.5 0 010 1H6a.5.5 0 010-1h1.5V3h-3v1a.5.5 0 01-1 0z"/></svg></span>Brand design system</h2>
+<div class="section-rule"></div>
+<p>Tokens are read from <a href="https://github.com/AdobeDrago/sfntc/blob/main/styles/styles.css" target="_blank" rel="noopener">styles/styles.css</a> (the <code class="code-inline">:root</code> block).</p><h3>Colour tokens</h3><div class="swatch-row"><div class="swatch"><div class="swatch-chip bordered" style="background:#fff"></div><div class="swatch-meta"><strong>background-color</strong><code>#fff</code></div></div><div class="swatch"><div class="swatch-chip bordered" style="background:#000"></div><div class="swatch-meta"><strong>text-color</strong><code>#000</code></div></div><div class="swatch"><div class="swatch-chip bordered" style="background:#ed5100"></div><div class="swatch-meta"><strong>link-color</strong><code>#ed5100</code></div></div><div class="swatch"><div class="swatch-chip bordered" style="background:#ed5100"></div><div class="swatch-meta"><strong>link-hover-color</strong><code>#ed5100</code></div></div><div class="swatch"><div class="swatch-chip bordered" style="background:#f3f1ee"></div><div class="swatch-meta"><strong>band-color</strong><code>#f3f1ee</code></div></div><div class="swatch"><div class="swatch-chip bordered" style="background:#9f9f9f"></div><div class="swatch-meta"><strong>muted-color</strong><code>#9f9f9f</code></div></div></div><h3>Font families</h3><div class="type-sample"><b>--body-font-family</b><br>Oswald, sans-serif</div><div class="type-sample"><b>--heading-font-family</b><br>Oswald, sans-serif</div><h3>Layout tokens</h3><div class="table-scroll"><table class="spec-table"><thead><tr><th>Token</th><th>Value</th></tr></thead><tbody><tr><td><code class="code-inline">--nav-height</code></td><td>77px</td></tr></tbody></table></div><h3>Brand assets committed to GitHub</h3><div class="table-scroll"><table class="spec-table"><thead><tr><th>Where</th><th>Files</th></tr></thead><tbody><tr><td>Font files in /fonts</td><td>opensans-800-latin.woff2, oswald-latin.woff2</td></tr><tr><td>Theme images in /images</td><td>logo.png, paper.png, parchment-footer.jpg, parchment-header.jpg</td></tr><tr><td>Icons in /icons</td><td>search.svg</td></tr></tbody></table></div>
+</section><section class="doc-section" id="github">
+<h2><span class="section-icon icon-ink"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M9.5 3.25a2.25 2.25 0 11-3 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 1111 3.25z"/></svg></span>GitHub implementation</h2>
+<div class="section-rule"></div>
+<h3>Repository</h3><dl class="kv"><dt>Repo</dt><dd><a href="https://github.com/AdobeDrago/sfntc" target="_blank" rel="noopener">AdobeDrago/sfntc</a></dd><dt>Branches</dt><dd><code class="code-inline">main</code>, <code class="code-inline">sfntc-link-fix</code>, <code class="code-inline">sfntc-pages-parity</code></dd><dt>Base commit</dt><dd><code class="code-inline">680e9aa</code> "chore: cleanup repository template"; everything after it is site work.</dd></dl><h3>Pull requests</h3><div class="table-scroll"><table class="spec-table"><thead><tr><th>#</th><th>Title</th><th>Branch</th><th>State</th></tr></thead><tbody><tr><td><a href="https://github.com/AdobeDrago/sfntc/pull/1" target="_blank" rel="noopener">#1</a></td><td>Rebuild sfntc.com pages as native EDS blocks (13 pages)</td><td><code class="code-inline">sfntc-pages-parity</code></td><td><span class="pill done">merged</span></td></tr><tr><td><a href="https://github.com/AdobeDrago/sfntc/pull/2" target="_blank" rel="noopener">#2</a></td><td>Fix 404s: internal links without trailing slashes</td><td><code class="code-inline">sfntc-link-fix</code></td><td><span class="pill warn">open</span></td></tr></tbody></table></div><h3>Commit history (main)</h3><ul class="timeline"><li><span class="when">2026-11-13</span><a href="https://github.com/AdobeDrago/sfntc/commit/a0efc1c" target="_blank" rel="noopener">a0efc1c</a> Merge pull request #1 from AdobeDrago/sfntc-pages-parity</li><li><span class="when">2026-11-13</span><a href="https://github.com/AdobeDrago/sfntc/commit/f8c8853" target="_blank" rel="noopener">f8c8853</a> Fix stylelint specificity order in image margin rules</li><li><span class="when">2026-11-13</span><a href="https://github.com/AdobeDrago/sfntc/commit/d965804" target="_blank" rel="noopener">d965804</a> Ledger: branch preview results and residuals</li><li><span class="when">2026-11-13</span><a href="https://github.com/AdobeDrago/sfntc/commit/1314d81" target="_blank" rel="noopener">1314d81</a> Remove the empty section the metadata block leaves behind</li><li><span class="when">2026-11-13</span><a href="https://github.com/AdobeDrago/sfntc/commit/74a4c2a" target="_blank" rel="noopener">74a4c2a</a> Model empty paragraphs as a spacer block (DA drops them); image margin rules</li><li><span class="when">2026-11-13</span><a href="https://github.com/AdobeDrago/sfntc/commit/4fa1616" target="_blank" rel="noopener">4fa1616</a> Handle DA normalisation: spacer paragraphs, list item paragraphs, image margins</li><li><span class="when">2026-11-13</span><a href="https://github.com/AdobeDrago/sfntc/commit/8ebdb8b" target="_blank" rel="noopener">8ebdb8b</a> Rebuild sfntc.com pages as EDS blocks at visual parity</li><li><span class="when">2026-11-12</span><a href="https://github.com/AdobeDrago/sfntc/commit/680e9aa" target="_blank" rel="noopener">680e9aa</a> chore: cleanup repository template</li><li><span class="when">2026-11-12</span><a href="https://github.com/AdobeDrago/sfntc/commit/97f808c" target="_blank" rel="noopener">97f808c</a> Initial commit</li></ul><h3>What differs from the boilerplate</h3><p>33 files outside <code class="code-inline">import-work/</code> were added or changed after the base commit.</p><div class="table-scroll"><table class="spec-table"><thead><tr><th>Area</th><th>Files</th><th>Changed files</th></tr></thead><tbody><tr><td><code class="code-inline">(root)</code></td><td>3</td><td>.eslintignore, .gitignore, .hlxignore</td></tr><tr><td><code class="code-inline">blocks</code></td><td>17</td><td>carousel.css, carousel.js, columns.css, cta.css, cta.js, footer.css, footer.js, header.css …</td></tr><tr><td><code class="code-inline">fonts</code></td><td>6</td><td>opensans-800-latin.woff2, oswald-latin.woff2, roboto-bold.woff2, roboto-condensed-bold.woff2, roboto-medium.woff2, roboto-regular.woff2</td></tr><tr><td><code class="code-inline">images</code></td><td>4</td><td>logo.png, paper.png, parchment-footer.jpg, parchment-header.jpg</td></tr><tr><td><code class="code-inline">scripts</code></td><td>1</td><td>scripts.js</td></tr><tr><td><code class="code-inline">styles</code></td><td>2</td><td>fonts.css, styles.css</td></tr></tbody></table></div><p><strong>scripts/scripts.js</strong> adds: <code class="code-inline">decorateImages</code>.</p><h3>import-work/ (migration tooling committed to the repo)</h3><p>107 files: page section sources under <code class="code-inline">pages/</code>, the DA-ready documents under <code class="code-inline">da/</code>, gate configs under <code class="code-inline">gate/</code>, <code class="code-inline">pages.json</code>, <code class="code-inline">site.json</code> and <code class="code-inline">ledger.md</code>. Open it in <a href="https://github.com/AdobeDrago/sfntc/tree/main/import-work" target="_blank" rel="noopener">GitHub</a>.</p><h3>Source URL map (import-work/pages.json)</h3><div class="table-scroll"><table class="spec-table"><thead><tr><th>Page key</th><th>Source URL</th></tr></thead><tbody><tr><td><code class="code-inline">home</code></td><td><a href="https://www.sfntc.com/" target="_blank" rel="noopener">https://www.sfntc.com/</a></td></tr><tr><td><code class="code-inline">our-company</code></td><td><a href="https://www.sfntc.com/our-company/" target="_blank" rel="noopener">https://www.sfntc.com/our-company/</a></td></tr><tr><td><code class="code-inline">our-commitment</code></td><td><a href="https://www.sfntc.com/our-commitment/" target="_blank" rel="noopener">https://www.sfntc.com/our-commitment/</a></td></tr><tr><td><code class="code-inline">our-company-sfntc-vision</code></td><td><a href="https://www.sfntc.com/our-company/sfntc-vision/" target="_blank" rel="noopener">https://www.sfntc.com/our-company/sfntc-vision/</a></td></tr><tr><td><code class="code-inline">transforming-tobacco</code></td><td><a href="https://www.sfntc.com/transforming-tobacco/" target="_blank" rel="noopener">https://www.sfntc.com/transforming-tobacco/</a></td></tr><tr><td><code class="code-inline">our-product-the-passion-behind-the-brand</code></td><td><a href="https://www.sfntc.com/our-product/the-passion-behind-the-brand/" target="_blank" rel="noopener">https://www.sfntc.com/our-product/the-passion-behind-the-brand/</a></td></tr><tr><td><code class="code-inline">want-to-quit-smoking</code></td><td><a href="https://www.sfntc.com/want-to-quit-smoking/" target="_blank" rel="noopener">https://www.sfntc.com/want-to-quit-smoking/</a></td></tr><tr><td><code class="code-inline">our-commitment-cigarette-waste</code></td><td><a href="https://www.sfntc.com/our-commitment/cigarette-waste/" target="_blank" rel="noopener">https://www.sfntc.com/our-commitment/cigarette-waste/</a></td></tr><tr><td><code class="code-inline">our-commitment-carolina-farm-stewardship-association</code></td><td><a href="https://www.sfntc.com/our-commitment/carolina-farm-stewardship-association/" target="_blank" rel="noopener">https://www.sfntc.com/our-commitment/carolina-farm-stewardship-association/</a></td></tr><tr><td><code class="code-inline">underage-tobacco-prevention</code></td><td><a href="https://www.sfntc.com/underage-tobacco-prevention/" target="_blank" rel="noopener">https://www.sfntc.com/underage-tobacco-prevention/</a></td></tr><tr><td><code class="code-inline">our-product</code></td><td><a href="https://www.sfntc.com/our-product/" target="_blank" rel="noopener">https://www.sfntc.com/our-product/</a></td></tr><tr><td><code class="code-inline">our-commitment-what-you-can-do-to-help</code></td><td><a href="https://www.sfntc.com/our-commitment/what-you-can-do-to-help/" target="_blank" rel="noopener">https://www.sfntc.com/our-commitment/what-you-can-do-to-help/</a></td></tr><tr><td><code class="code-inline">sfntc-foundation</code></td><td><a href="https://www.sfntc.com/sfntc-foundation/" target="_blank" rel="noopener">https://www.sfntc.com/sfntc-foundation/</a></td></tr></tbody></table></div>
+</section><section class="doc-section" id="fidelity">
+<h2><span class="section-icon icon-green"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg></span>Parity gate &amp; results</h2>
+<div class="section-rule"></div>
+<div class="table-scroll"><table class="spec-table"><thead><tr><th>Check</th><th>Result</th></tr></thead><tbody><tr><td>Local gate (1440 + 1280)</td><td>All sections reached 99–100% pixel with 0 mismatches except the residuals listed below</td></tr><tr><td>Section offsets</td><td>13/13 pages with every section at the source&#x27;s page Y</td></tr><tr><td>Branch preview</td><td>Photo sections show 2 expected mismatches (unpaired renamed images) at 99.9–100%; home hero 98.54% (re-encoded photo, 0 style mismatches)</td></tr><tr><td>Open work</td><td>PR #2 (sfntc-link-fix) is open at the time of writing</td></tr></tbody></table></div><p class="small muted">The parity gate compares each section of the rebuild with the source at 1440 and 1280 px: pass = ≥99% pixel match and 0 computed-style mismatches. Figures above are quoted from the repo's own ledger and gate files.</p><details class="fold"><summary>Full parity ledger (import-work/ledger.md)</summary><div class="fold-body"><p>Baseline at start: <strong>not measured</strong> (<code class="code-inline">get_usage</code> was first called after the build). At local-gate completion: context 404,642 tokens (this session); account extra-usage meter $356.82 of $600 (shared with the four parallel Reynolds sessions, so no per-row spend is claimed). Gate: ≥99% pixel and 0 computed-style mismatches per section at 1440 and 1280 (default bar, not lowered), plus section page offsets.</p>
+<p>Per-row context/spend deltas were not recorded (no baseline). Mismatch and pixel figures are from <code class="code-inline">gate.js</code> runs: &quot;before&quot; is the first run of that piece (rounded, some pieces were gated together), &quot;after&quot; is the final run (<code class="code-inline">tools/run_all.sh</code>).</p>
+<div class="table-scroll"><table class="spec-table"><thead><tr><th>Phase / iteration</th><th>Block / variant</th><th>Change</th><th>Mismatches before→after</th><th>Pixel before→after (1440 / 1280)</th><th>Context Δ</th><th>Spend Δ</th></tr></thead><tbody>
+<tr><td>Intake</td><td>—</td><td>Decided upstream: widths 1440+1280, images uploaded to DA, video poster only, open/dropdown states not gated, dynamic data = static placeholder marked <code class="code-inline">invisible</code>. Sitemap: 13 URLs. <code class="code-inline">preflight.js</code> said 13/13 <code class="code-inline">ok</code> but every page returned the same 1115-char text: the server serves an &quot;Enter SFNTC.com&quot; entry page to clients without its cookie. The user passed it in a headed window (profile <code class="code-inline">work/.browser-profile</code>); the gate itself is <strong>not</strong> rebuilt (user decision)</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td></tr>
+<tr><td>Capture</td><td>—</td><td>13 bundles × 2 widths. First captures in headed mode; later ones in headless Chromium reusing the same user-passed session profile (<code class="code-inline">tools/headless-preload.js</code>) because headed rasterisation drifted from the headless rebuild (see residuals). <code class="code-inline">site.json</code> <code class="code-inline">freezeCss</code> hides scrollbars</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td></tr>
+<tr><td>Map</td><td>—</td><td>Two templates: home (4 sections) and inner (page-header, breadcrumb, entry-content). Reuse: <code class="code-inline">header</code>, <code class="code-inline">footer</code>, <code class="code-inline">hero</code>, <code class="code-inline">columns</code> (variant <code class="code-inline">contact</code>); new: <code class="code-inline">page-header</code>, <code class="code-inline">cta</code> (image / banner / dual), <code class="code-inline">carousel</code>, <code class="code-inline">table</code></td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td></tr>
+<tr><td>Template it.1–6</td><td>header</td><td>logo + paper card (image used at 0.5×), parchment <code class="code-inline">auto 100%</code>, 4 dropdowns (CSS hover/focus, click on touch), nav 600/700px wide</td><td>32→0</td><td>78.5 / 78.7 → 100 / 99.4</td><td></td><td></td></tr>
+<tr><td>Template it.1–3</td><td>footer</td><td>span + links row, 60px, weight 500 face</td><td>11→0</td><td>95.4 / 95.5 → 100 / 99.7</td><td></td><td></td></tr>
+<tr><td>Template it.1–3</td><td>page-header</td><td>gray band, h1 + 3px orange underline, crumbs rebuilt as <code class="code-inline">p &gt; span &gt; span</code></td><td>2→0</td><td>99.1 → 99.8</td><td></td><td></td></tr>
+<tr><td>Template</td><td>fonts</td><td>Oswald (OFL) variable latin file declared as 300/500/600/700 faces (the source has no 400 face, so 400 resolves to 500); Open Sans 800 for buttons</td><td>n/a</td><td>n/a</td><td></td><td></td></tr>
+<tr><td>Section</td><td>default content (inner pages)</td><td>721px column, h2/h3, lists (ul 7px / ol 50px), links black/underlined, <code class="code-inline">band</code> highlight + quote, <code class="code-inline">title-center</code>, <code class="code-inline">space-after</code>, images (<code class="code-inline">&lt;em&gt;</code> = no top margin)</td><td>22→0</td><td>88.9 → 100</td><td></td><td></td></tr>
+<tr><td>Section</td><td>hero (home)</td><td>photo as CSS background + 583px translucent card</td><td>6→0</td><td>56 → 99.7</td><td></td><td></td></tr>
+<tr><td>Section</td><td>cta image / banner / dual (home)</td><td>flex layouts, photo as CSS background</td><td>13→0</td><td>83 → 99.1</td><td></td><td></td></tr>
+<tr><td>Section</td><td>carousel (foundation)</td><td>statistic slides in one grid cell; text and dots <code class="code-inline">invisible</code> (the source rotates)</td><td>→ 0</td><td>50 → 100</td><td></td><td></td></tr>
+<tr><td>Section</td><td>table (foundation)</td><td>real <code class="code-inline">&lt;table&gt;</code> from block rows</td><td>133→0</td><td>74 → 100</td><td></td><td></td></tr>
+<tr><td>Section</td><td>columns <code class="code-inline">contact</code> (foundation)</td><td>flex 488/500 shrink to 721</td><td>6→0</td><td>95 → 99.9</td><td></td><td></td></tr>
+<tr><td>Page level</td><td>offsets</td><td>13/13 pages, every section at the source&#x27;s page Y (spacer gaps modelled as section margins)</td><td>n/a</td><td>n/a</td><td></td><td></td></tr>
+<tr><td>Branch preview</td><td>DA publish</td><td>20 images + 15 bodies uploaded; DA normalises content: drops <code class="code-inline">&lt;em&gt;</code> around images, drops <code class="code-inline">&lt;p&gt;&amp;nbsp;&lt;/p&gt;</code>, wraps list-item text in <code class="code-inline">&lt;p&gt;</code>, leaves an empty trailing section. Fixes: <code class="code-inline">spacer</code> block, image margin rules, <code class="code-inline">li &gt; p</code> unwrap, empty-section removal in <code class="code-inline">scripts.js</code></td><td>n/a</td><td>n/a</td><td></td><td></td></tr>
+<tr><td>Branch preview</td><td>re-gate</td><td>all 13 pages vs <code class="code-inline">https://sfntc-pages-parity--sfntc--adobedrago.aem.page/</code>: every section at its source page position; remaining misses are the expected <code class="code-inline">media_&lt;hash&gt;</code> image pairing (2 mismatches per section with a photo, ~100% pixel) and the items under residuals</td><td>see residuals</td><td>see residuals</td><td></td><td></td></tr>
+<tr><td>Lint</td><td>—</td><td><code class="code-inline">npm run lint</code> clean (import-work/ in <code class="code-inline">.eslintignore</code>)</td><td>n/a</td><td>n/a</td><td></td><td></td></tr>
+</tbody></table></div>
+<h3>Residuals (local gate, factual)</h3>
+<ul class="hl-list"><li><strong>sfntc-foundation, <code class="code-inline">History</code> heading</strong> (1 style mismatch, both widths): source x = 4.4px because an empty <code class="code-inline">&lt;h2&gt;&lt;/h2&gt;</code> sits before it on the same line; DA drops empty headings, so the rebuild starts at x = 0. Pixel 99.4%.</li><li><strong>Source capture variance:</strong> header/footer measured in headed Chromium differed from the headless rebuild by a sub-pixel text offset (97–99% pixel, text height 18 vs 17px). Capturing in headless Chromium with the same session profile gives 100%. All bundles in <code class="code-inline">work/bundles/</code> are the headless ones.</li><li><strong>Carousel (foundation):</strong> source autoplays; rotation timing was not measured, so the rebuild shows slide 1 with clickable dots and no autoplay. Slide text and dots are <code class="code-inline">invisible</code> in <code class="code-inline">site.json</code>, so they are not pixel-compared.</li><li><strong>Hover / open states</strong> (nav dropdowns) are built but not gated (intake decision).</li><li><strong>Images:</strong> local gate used the exact renditions the source browser painted (named in the style records). On the branch preview EDS renames and re-encodes images (<code class="code-inline">media_&lt;hash&gt;</code>), so image pairing and photo pixels are expected to differ.</li><li><strong>Entry gate:</strong> the &quot;Enter SFNTC.com&quot; welcome page is not migrated (user decision).</li><li><strong>Home hero link:</strong> the source links to <code class="code-inline">/sfntc-vision/</code>; the rebuild links to <code class="code-inline">/our-company/sfntc-vision/</code> (the sitemap URL of the vision page). Redirect behaviour of <code class="code-inline">/sfntc-vision/</code> was not verified.</li><li>Footer text &quot;© 2026 SFTNC.&quot; is copied verbatim (including the source&#x27;s spelling).</li></ul>
+<h3>Residuals on the branch preview</h3>
+<ul class="hl-list"><li>Sections with a photo show 2 mismatches (<code class="code-inline">UNPAIRED</code> source image, <code class="code-inline">UNPAIRED</code> <code class="code-inline">media_&lt;hash&gt;</code> rebuild image) at 99.9–100% pixel; carolina has 4 (two photos). Expected: EDS renames and re-encodes images.</li><li>Home hero 98.54% (re-encoded photo, 0 style mismatches). <code class="code-inline">sfntc-foundation</code> content5 99.95% (6 mismatches: 3 image pairs, plus 1px tolerance on height); <code class="code-inline">sfntc-foundation</code> footer 98.36% / 97.8% (source footer sits at a fractional y, 8634.875).</li><li><code class="code-inline">sfntc-foundation</code> local residuals also remain: <code class="code-inline">History</code> heading x-offset (above) and the first image of the photo block (<code class="code-inline">All-Relations United</code>, source class <code class="code-inline">alignnone</code>: top margin 0, rebuild 16px; DA drops the italic marker I used to carry that).</li><li>Not verified: behaviour with JavaScript disabled, hover states of nav dropdowns, mobile/tablet widths.</li></ul></div></details>
+</section><section class="doc-section" id="decisions">
+<h2><span class="section-icon icon-purple"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.75A.75.75 0 012.75 2h7.5l3.5 3.5v7.75a.75.75 0 01-.75.75h-10.5a.75.75 0 01-.75-.75zM3.5 3.5v9h9V6H9.5V3.5z"/></svg></span>Decisions &amp; assumptions</h2>
+<div class="section-rule"></div>
+<div class="table-scroll"><table class="spec-table"><thead><tr><th>Decision</th><th>Detail</th></tr></thead><tbody><tr><td>Entry gate</td><td>The &quot;Enter SFNTC.com&quot; welcome page is not migrated (user decision).</td></tr><tr><td>Carousel</td><td>Rotation timing not measured; rebuild shows slide 1 with clickable dots and no autoplay.</td></tr><tr><td>Dynamic data</td><td>Static placeholder marked invisible in the gate config.</td></tr><tr><td>Capture</td><td>Headless Chromium with the user-passed session profile; the source serves an entry page without its cookie.</td></tr></tbody></table></div>
+</section><section class="doc-section" id="limitations">
+<h2><span class="section-icon icon-orange"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575z"/></svg></span>Known limitations</h2>
+<div class="section-rule"></div>
+<div class="table-scroll"><table class="spec-table"><thead><tr><th>Item</th><th>Detail</th></tr></thead><tbody><tr><td>sfntc-foundation History heading</td><td>1 style mismatch at both widths: the source has an empty &lt;h2&gt; before it (x = 4.4px); DA drops empty headings. Pixel 99.4%.</td></tr><tr><td>Foundation first photo</td><td>Source class alignnone has top margin 0; rebuild shows 16px because DA drops the italic marker used to carry it.</td></tr><tr><td>Footer on foundation page</td><td>98.36% / 97.8% on preview (source footer sits at fractional y 8634.875).</td></tr><tr><td>Home hero link</td><td>Source links to /sfntc-vision/; rebuild links to /our-company/sfntc-vision/. Redirect behaviour of the old path not verified.</td></tr><tr><td>Footer copyright</td><td>&quot;© 2026 SFTNC.&quot; copied verbatim including the source&#x27;s spelling.</td></tr><tr><td>Not verified</td><td>JavaScript disabled, nav dropdown hover states, mobile and tablet widths.</td></tr></tbody></table></div>
+</section><section class="doc-section" id="next-steps">
+<h2><span class="section-icon icon-blue"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8.22 2.97a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06l2.97-2.97H3.75a.75.75 0 010-1.5h7.44L8.22 4.03a.75.75 0 010-1.06z"/></svg></span>Next steps</h2>
+<div class="section-rule"></div>
+<ul class="checklist"><li class="check-item"><span class="check-mark cm-todo"></span><div class="check-body"><div class="check-title">Review and merge PR #2 (sfntc-link-fix).</div></div></li><li class="check-item"><span class="check-mark cm-todo"></span><div class="check-body"><div class="check-title">Decide whether the entry (age) gate needs an EDS equivalent.</div></div></li><li class="check-item"><span class="check-mark cm-todo"></span><div class="check-body"><div class="check-title">Run QA on the branch preview and the main preview against the production site, section by section.</div></div></li><li class="check-item"><span class="check-mark cm-todo"></span><div class="check-body"><div class="check-title">Publish the pages to .aem.live once QA is signed off (merging main ships code only; content is previewed and published separately).</div></div></li></ul>
+</section><section class="doc-section" id="dev-notes">
+<h2><span class="section-icon icon-ink"><svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 2A2.5 2.5 0 002 4.5v7A2.5 2.5 0 004.5 14h7a2.5 2.5 0 002.5-2.5v-7A2.5 2.5 0 0011.5 2zM3.5 4.5a1 1 0 011-1h7a1 1 0 011 1v7a1 1 0 01-1 1h-7a1 1 0 01-1-1z"/></svg></span>Developer notes</h2>
+<div class="section-rule"></div>
+<h3>Run locally</h3>
+<div class="code-block"><span class="cmt"># clone and install</span>
+git clone https://github.com/AdobeDrago/sfntc.git &amp;&amp; cd sfntc
+npm i
+<span class="cmt"># local code, previewed DA content</span>
+npx -y @adobe/aem-cli up
+<span class="cmt"># lint before every PR</span>
+npm run lint</div>
+<h3>Where things live</h3>
+<div class="table-scroll"><table class="spec-table"><thead><tr><th>Path</th><th>Purpose</th></tr></thead><tbody><tr><td>blocks/&lt;name&gt;/</td><td>Block JS + CSS (one folder per block)</td></tr><tr><td>scripts/scripts.js</td><td>Page decoration, auto-blocking, section styles</td></tr><tr><td>scripts/aem.js</td><td>Vendored AEM library — never edit</td></tr><tr><td>styles/styles.css</td><td>Global tokens and base styles (:root)</td></tr><tr><td>styles/fonts.css</td><td>Webfont @font-face rules</td></tr><tr><td>head.html</td><td>Head markup, CSP and script/style includes</td></tr><tr><td>import-work/</td><td>Migration sources, DA documents, gate configs and ledger</td></tr></tbody></table></div>
+<h3>Rules from the repo's AGENTS.md</h3>
+<ul class="hl-list"><li>Markup comes from the backend: fetch <code class="code-inline">/path.plain.html</code> before writing a block.</li><li><code class="code-inline">buildAutoBlocks</code> rewrites content before a block runs; authors omit and add cells, so decorate defensively.</li><li>Scope CSS to <code class="code-inline">.blockname</code>; <code class="code-inline">-wrapper</code> and <code class="code-inline">-container</code> are section classes.</li><li>A PR without a <code class="code-inline">{branch}--sfntc--AdobeDrago.aem.page/{path}</code> link is rejected.</li><li>Merging main ships code; content is previewed and published separately in DA.</li><li>All committed files are served — use <code class="code-inline">.hlxignore</code> for anything that should not be.</li></ul>
+<h3>Authoring workflow in DA.live</h3>
+<ol class="req-list"><li>Open <a href="https://da.live/#/adobedrago/sfntc" target="_blank" rel="noopener">da.live/#/adobedrago/sfntc</a> and edit the document.</li><li>Preview from DA (or use the Sidekick) and check <code class="code-inline">https://main--sfntc--adobedrago.aem.page/</code>.</li><li>For a code change, branch from main, push, and open the PR with the <code class="code-inline">&lt;branch&gt;--sfntc--adobedrago.aem.page</code> link.</li><li>Publish content to .aem.live after QA.</li></ol>
+</section>
+<footer class="doc-footer">
+  <span>Updated November 2026</span><span>·</span>
+  <span>Generated from the GitHub repos and DA.live content of the AdobeDrago organisation by <code class="code-inline">tools/collect.py</code> and <code class="code-inline">tools/build.py</code>.</span>
+</footer>
+</div></main>
+</div>
+<script>
+// Site switcher + scroll-spy for the sidebar. No dependencies.
+(function () {
+  var sel = document.getElementById('site-switch');
+  if (sel) sel.addEventListener('change', function () { if (sel.value) window.location.href = sel.value; });
+  var links = [].slice.call(document.querySelectorAll('.sidebar-link[href^="#"]'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  var sections = Object.keys(map).map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !sections.length) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        links.forEach(function (l) { l.classList.remove('active'); });
+        if (map[e.target.id]) map[e.target.id].classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(function (s) { io.observe(s); });
+})();
+
+</script>
+</body>
+</html>
